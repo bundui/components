@@ -10,9 +10,9 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   openGraph: {
-    title: 'Bundui',
+    title: 'Bundui - Tailwind CSS and Framer Motion component collection.',
     description:
-      'A collection of customizable motion components built with Framer Motion and Tailwind CSS.',
+      'A collection of beautifully designed animated components, elements, sections that you can copy and paste into your applications. Built with Tailwind CSS and Framer Motion.',
     url: process.env.BASE_URL,
     images: ['/seo.jpg']
   }
