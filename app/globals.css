@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.switch {
+  width: 160px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 50px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.switch[data-isOn='true'] {
+  justify-content: flex-end;
+}
+
+.handle {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 40px;
+}
+
+:root {
+  --scrollbar-color: rgba(0, 0, 0, 0.3);
+
+  /* shiki theme noir */
+  --shiki-foreground: #ffffff;
+  --shiki-token-constant: #a7a7a7;
+  --shiki-token-string: #a7a7a7;
+  --shiki-token-comment: #666666;
+  --shiki-token-keyword: #a7a7a7;
+  --shiki-token-parameter: #a7a7a7;
+  --shiki-token-function: #ffffff;
+  --shiki-token-string-expression: #a7a7a7;
+  --shiki-token-punctuation: #a7a7a7;
+  --shiki-token-link: #a7a7a7;
+  --shiki-token-number: #ffffff;
+  --shiki-token-property: #a7a7a7;
+}
+
+:root.dark {
+  --scrollbar-color: rgba(255, 255, 255, 0.3);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--scrollbar-color) transparent;
+  scrollbar-width: thin;
+}
+
+/* fix radix dropdown-menu layout shift */
+html body[data-scroll-locked] {
+  margin-right: 0 !important;
+}
