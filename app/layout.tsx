@@ -7,12 +7,16 @@ import Header from '@/components/website/header';
 import Footer from '@/components/website/footer';
 
 const inter = Inter({ subsets: ['latin'] });
-/* 
+
 export const metadata: Metadata = {
-  title: 'Bundui',
-  description:
-    'Bundui, a collection of open-source, customizable motion components built with Framer Motion and Tailwind CSS. Perfect for enhancing your web projects with beautiful, smooth animations.'
-}; */
+  openGraph: {
+    title: 'Bundui',
+    description:
+      'A collection of customizable motion components built with Framer Motion and Tailwind CSS.',
+    url: process.env.BASE_URL,
+    images: ['/seo.jpg']
+  }
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
