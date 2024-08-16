@@ -37,7 +37,7 @@ function NavigationDesktop() {
                             href={child.href}>
                             <span>{child.name}</span>
                             {child?.isNew && (
-                              <span className="whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold text-emerald-800">
+                              <span className="whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold border border-emerald-300">
                                 New
                               </span>
                             )}

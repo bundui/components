@@ -28,11 +28,13 @@ export const NAVIGATION: NavigationGroup[] = [
     children: [
       {
         name: 'Floating Button',
-        href: '/docs/components/floating-button'
+        href: '/docs/components/floating-button',
+        isNew: false
       },
       {
         name: 'Magnetic Button',
-        href: '/docs/components/magnetic-button'
+        href: '/docs/components/magnetic-button',
+        isNew: true
       }
     ]
   }
