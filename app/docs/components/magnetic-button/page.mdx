@@ -1,0 +1,34 @@
+export const metadata = {
+  title: 'Magnetic Button - Bundui',
+  description:
+    "A Magnetic Button is a UI component designed to enhance user interaction. When a user's cursor or touch input approaches the button, it subtly moves towards the user, simulating the effect of magnetic attraction."
+};
+
+import MagneticButtonExample from '@/components/examples/magnetic-button';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+import CodeRenderer from '@/components/website/code-renderer';
+
+# Magnetic Button
+
+A Magnetic Button is a UI component designed to enhance user interaction. When a user's cursor or touch input approaches the button, it subtly moves towards the user, simulating the effect of magnetic attraction. This interaction makes the button more enticing to click and adds a dynamic and engaging element to the user experience. This example was made with Tailwind CSS and Framer Motion.
+
+<ComponentCodePreview
+  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
+  component={<MagneticButtonExample />}
+  filePath="examples/magnetic-button"
+/>
+
+## Installation
+
+### Install the following dependencies:
+
+<CodeRenderer code="npm i framer-motion" lang="bash" />
+
+### Copy and paste the following code into your project.
+
+<CodeBlock filePath="components/ui/magnetic-button.tsx" />
+
+### Usage
+
+<CodeBlock filePath="components/examples/magnetic-button.tsx" />

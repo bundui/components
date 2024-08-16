@@ -29,6 +29,10 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Floating Button',
         href: '/docs/components/floating-button'
+      },
+      {
+        name: 'Magnetic Button',
+        href: '/docs/components/magnetic-button'
       }
     ]
   }
