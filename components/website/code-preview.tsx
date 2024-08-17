@@ -1,6 +1,7 @@
-'use client';
-import { Check, Copy } from 'lucide-react';
-import { useState } from 'react';
+"use client";
+import { Check, Copy } from "lucide-react";
+import { useState } from "react";
+import { umamiTrack } from "@/lib/umami";
 
 type CodePreviewProps = {
   code: string;
@@ -14,6 +15,10 @@ export default function CodePreview({ code, children }: CodePreviewProps) {
     navigator.clipboard.writeText(code);
     setHasCheckIcon(true);
 
+    umamiTrack({
+      name: "Copy Code",
+    });
+
     setTimeout(() => {
       setHasCheckIcon(false);
     }, 1000);
@@ -21,17 +26,23 @@ export default function CodePreview({ code, children }: CodePreviewProps) {
 
   return (
     <div className="relative">
-      <div className="absolute right-4 top-4 cursor-pointer bg-transparent p-2" onClick={onCopy}>
+      <div
+        className="absolute right-4 top-4 cursor-pointer bg-transparent p-2"
+        data-umami-event="Copy Code 2"
+        onClick={onCopy}
+      >
         <div
           className={`absolute inset-0 transform transition-all duration-300 ${
-            hasCheckIcon ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
-          }`}>
+            hasCheckIcon ? "scale-0 opacity-0" : "scale-100 opacity-100"
+          }`}
+        >
           <Copy className="h-4 w-4 text-zinc-50" />
         </div>
         <div
           className={`absolute inset-0 transform transition-all duration-300 ${
-            hasCheckIcon ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-          }`}>
+            hasCheckIcon ? "scale-100 opacity-100" : "scale-0 opacity-0"
+          }`}
+        >
           <Check className="h-4 w-4 text-zinc-50" />
         </div>
       </div>

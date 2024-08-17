@@ -1,33 +1,35 @@
-import Link from 'next/link';
-import React from 'react';
-import GitHubIcon from '@/components/website/icons/github';
-import { ChevronRight } from 'lucide-react';
-import FloatingButtonExample from '@/components/examples/floating-button';
-import { Metadata } from 'next';
+import Link from "next/link";
+import React from "react";
+import GitHubIcon from "@/components/website/icons/github";
+import { ChevronRight } from "lucide-react";
+import FloatingButtonExample from "@/components/examples/floating-button";
+import MagneticButtonExample from "@/components/examples/magnetic-button";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Bundui',
+  title: "Bundui - Tailwind CSS and Framer Motion components",
   description:
-    'Bundui, a collection of open-source, customizable motion components built with Framer Motion and Tailwind CSS. Perfect for enhancing your web projects with beautiful, smooth animations.'
+    "Perfect for enhancing your web projects with beautiful, fluid animations. A collection of open source, customizable motion components. Built with Tailwind CSS and Framer Motion.",
 };
 
 function Button({
   children,
-  variant = 'primary'
+  variant = "primary",
 }: {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary';
+  variant?: "primary" | "secondary";
 }) {
   const buttonVariants = {
     primary:
-      'bg-zinc-50 border border-zinc-100 text-zinc-950 hover:bg-zinc-100 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:text-zinc-50 dark:border-zinc-900',
+      "bg-zinc-50 border border-zinc-200 text-zinc-950 hover:bg-zinc-100 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:text-zinc-50 dark:border-zinc-900",
     secondary:
-      'bg-zinc-900 text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:hover:bg-zinc-300 dark:text-zinc-950'
+      "bg-zinc-900 text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:hover:bg-zinc-300 dark:text-zinc-950",
   };
 
   return (
     <button
-      className={`inline-flex items-center rounded-md px-2.5 py-1.5 text-sm ${buttonVariants[variant]}`}>
+      className={`inline-flex items-center rounded-md px-2.5 py-1.5 text-sm ${buttonVariants[variant]}`}
+    >
       {children}
     </button>
   );
@@ -35,10 +37,9 @@ function Button({
 
 function CardExample({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative -mx-6 sm:mx-0">
-      <div className="pointer-events-none absolute left-0 top-[-100px] z-[-1] h-full w-full bg-[radial-gradient(100%_100%_at_50%_50%,hsl(0deg_0%_100%/8%)_0,hsl(0deg_0%_100%/2%)_50%)] blur-2xl md:left-[-100px] md:h-[calc(100%+200px)] md:w-[calc(100%+200px)]" />
-      <div className="relative w-full overflow-hidden rounded-xl bg-zinc-50 p-4 shadow-[0px_0px_0px_1px_theme(colors.zinc.100),0px_2px_2px_0px_theme(colors.zinc.50)] dark:border dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none">
-        <div className="flex h-[350px] items-center justify-center">{children}</div>
+    <div className="border relative w-full rounded-lg bg-zinc-50 p-4 shadow-[0px_0px_0px_1px_theme(colors.zinc.100),0px_2px_2px_0px_theme(colors.zinc.50)] dark:border dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none">
+      <div className="flex h-[350px] items-center justify-center">
+        {children}
       </div>
     </div>
   );
@@ -54,8 +55,8 @@ export default function Motion() {
               Build beautiful animated components
             </h1>
             <p className="text-center text-zinc-600 dark:text-zinc-200">
-              Beautifully designed motions components. Easy copy-paste. Customizable. Open Source.
-              Built for engineers and designers.
+              Beautifully designed motions components. Easy copy-paste.
+              Customizable. Open Source. Built for engineers and designers.
             </p>
           </div>
           <div className="flex items-center space-x-4 py-6">
@@ -68,7 +69,8 @@ export default function Motion() {
             <a
               href="https://github.com/bundui/components"
               target="_blank"
-              rel="noopener noreferrer">
+              rel="noopener noreferrer"
+            >
               <Button variant="secondary">
                 <GitHubIcon className="mr-1.5 h-4 w-4 fill-white dark:fill-zinc-950" />
                 Star on GitHub
@@ -76,9 +78,12 @@ export default function Motion() {
             </a>
           </div>
         </section>
-        <section className="mx-auto max-w-3xl py-32">
+        <section className="container grid grid-cols-2 mx-auto max-w-screen-xl py-32 gap-4 lg:gap-10">
           <CardExample>
             <FloatingButtonExample />
+          </CardExample>
+          <CardExample>
+            <MagneticButtonExample />
           </CardExample>
         </section>
       </div>
