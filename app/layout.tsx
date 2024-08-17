@@ -26,18 +26,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Script
-        async
-        src="https://analytics.umami.is/script.js"
-        data-website-id="04c3c0e0-946d-4cb4-8c02-2f40a7558ec1"
-      />
-      {/* {process.env.NODE_ENV !== "development" ? (
+      {process.env.NODE_ENV !== "development" ? (
         <Script
           async
           src="https://analytics.umami.is/script.js"
           data-website-id="04c3c0e0-946d-4cb4-8c02-2f40a7558ec1"
         />
-      ) : null} */}
+      ) : null}
       <body
         className={`${inter.className} ${GeistMono.variable} bg-white dark:bg-zinc-950`}
       >
