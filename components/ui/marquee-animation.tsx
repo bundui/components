@@ -55,7 +55,7 @@ export default function MarqueeAnimation({
   });
 
   return (
-    <div className="overflow-hidden max-w-[100vw] text-nowrap flex-nowrap flex">
+    <div className="overflow-hidden max-w-[100vw] text-nowrap flex-nowrap flex relative">
       <motion.div
         className={cn(
           "font-bold uppercase text-5xl flex flex-nowrap text-nowrap *:block *:me-10",
