@@ -7,6 +7,10 @@ import MagneticButtonExample from "@/components/examples/magnetic-button";
 import { Metadata } from "next";
 import Header from "@/components/website/header";
 import Footer from "@/components/website/footer";
+import AnimatedGradientTextExamle from "@/components/examples/animated-gradient-text";
+import MarqueeAnimationExample from "@/components/examples/marquee-animation";
+import CountAnimationExamle from "@/components/examples/count-animation";
+import TextGradientScrollExample from "@/components/examples/text-gradient-scroll";
 
 export const metadata: Metadata = {
   title: "Bundui - Tailwind CSS and Framer Motion components",
@@ -87,6 +91,15 @@ export default function Motion() {
           </CardExample>
           <CardExample>
             <MagneticButtonExample />
+          </CardExample>
+          <CardExample>
+            <AnimatedGradientTextExamle />
+          </CardExample>
+          <CardExample>
+            <MarqueeAnimationExample />
+          </CardExample>
+          <CardExample>
+            <CountAnimationExamle />
           </CardExample>
         </section>
       </div>
