@@ -11,31 +11,36 @@ type NavigationGroup = {
 
 export const NAVIGATION: NavigationGroup[] = [
   {
-    name: 'Getting started',
+    name: "Getting started",
     children: [
       {
-        name: 'Introduction',
-        href: '/docs/introduction'
+        name: "Introduction",
+        href: "/docs/introduction",
       },
       {
-        name: 'Install Next.js',
-        href: '/docs/install-nextjs'
-      }
-    ]
+        name: "Install Next.js",
+        href: "/docs/install-nextjs",
+      },
+    ],
   },
   {
-    name: 'Components',
+    name: "Components",
     children: [
       {
-        name: 'Floating Button',
-        href: '/docs/components/floating-button',
-        isNew: false
+        name: "Floating Button",
+        href: "/docs/components/floating-button",
+        isNew: false,
       },
       {
-        name: 'Magnetic Button',
-        href: '/docs/components/magnetic-button',
-        isNew: true
-      }
-    ]
-  }
+        name: "Magnetic Button",
+        href: "/docs/components/magnetic-button",
+        isNew: false,
+      },
+      {
+        name: "Animated Gradient Text",
+        href: "/docs/components/animated-gradient-text",
+        isNew: true,
+      },
+    ],
+  },
 ];
