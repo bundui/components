@@ -1,0 +1,38 @@
+export const metadata = {
+  title: "Count Animation - Bundui",
+  description:
+    "Enhance user experience with count animation, dynamically animating numbers to draw attention to key data points. Created using Tailwind CSS and Framer Motion.",
+};
+
+import CountAnimationExamle from "@/components/examples/count-animation";
+import ComponentCodePreview from "@/components/website/component-code-preview";
+import CodeBlock from "@/components/website/code-block";
+import CodeRenderer from "@/components/website/code-renderer";
+
+# Count Animation
+
+The count animation component is designed to create a captivating user experience by animating numerical values as they increase or decrease. This effect draws the user's attention to important data, making the information more dynamic and engaging. Whether it's displaying statistics, financial figures, or progress counters, the smooth animation of numbers adds a sense of liveliness and interactivity to your interface. This example was created using Tailwind CSS and Framer Motion.
+
+## Examples
+
+<ComponentCodePreview
+  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
+  component={<CountAnimationExamle />}
+  filePath="examples/count-animation"
+/>
+
+### Install the following dependencies:
+
+<CodeRenderer code="npm i framer-motion clsx tailwind-merge" lang="bash" />
+
+### Add util file
+
+<CodeBlock filePath="lib/utils.ts" />
+
+### Copy and paste the following code into your project.
+
+<CodeBlock filePath="components/ui/count-animation.tsx" />
+
+### Usage
+
+<CodeBlock filePath="components/examples/count-animation.tsx" />

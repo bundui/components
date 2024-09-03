@@ -5,6 +5,8 @@ import { ChevronRight } from "lucide-react";
 import FloatingButtonExample from "@/components/examples/floating-button";
 import MagneticButtonExample from "@/components/examples/magnetic-button";
 import { Metadata } from "next";
+import Header from "@/components/website/header";
+import Footer from "@/components/website/footer";
 
 export const metadata: Metadata = {
   title: "Bundui - Tailwind CSS and Framer Motion components",
@@ -48,6 +50,7 @@ function CardExample({ children }: { children: React.ReactNode }) {
 export default function Motion() {
   return (
     <>
+      <Header />
       <div className="px-6 py-4 pb-20">
         <section className="flex h-full flex-col items-center justify-center pt-20">
           <div className="flex w-full max-w-lg lg:max-w-xl flex-col items-center justify-center text-center">
@@ -87,6 +90,7 @@ export default function Motion() {
           </CardExample>
         </section>
       </div>
+      <Footer />
     </>
   );
 }

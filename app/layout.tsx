@@ -37,10 +37,8 @@ export default function RootLayout({
         className={`${inter.className} ${GeistMono.variable} bg-white dark:bg-zinc-950`}
       >
         <ThemeProvider attribute="class">
-          <Header />
           <div className="isolate min-h-screen">{children}</div>
         </ThemeProvider>
-        <Footer />
       </body>
     </html>
   );

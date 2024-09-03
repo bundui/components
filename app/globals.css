@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 
-.switch[data-isOn='true'] {
+.switch[data-isOn="true"] {
   justify-content: flex-end;
 }
 

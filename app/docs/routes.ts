@@ -41,6 +41,21 @@ export const NAVIGATION: NavigationGroup[] = [
         href: "/docs/components/animated-gradient-text",
         isNew: true,
       },
+      {
+        name: "Text Gradient Scroll",
+        href: "/docs/components/text-gradient-scroll",
+        isNew: true,
+      },
+      {
+        name: "Marquee Animation",
+        href: "/docs/components/marquee-animation",
+        isNew: true,
+      },
+      {
+        name: "Count Animation",
+        href: "/docs/components/count-animation",
+        isNew: true,
+      },
     ],
   },
 ];

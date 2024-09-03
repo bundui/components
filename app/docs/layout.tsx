@@ -5,7 +5,9 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/website/scroll-area";
 import { usePathname, useRouter } from "next/navigation";
-import { NAVIGATION } from "@/lib/routes";
+import { NAVIGATION } from "@/app/docs/routes";
+import Header from "@/components/website/header";
+import Footer from "@/components/website/footer";
 
 function NavigationDesktop() {
   const pathname = usePathname();
@@ -100,6 +102,7 @@ export default function ComponentLayout({
 }) {
   return (
     <>
+      <Header />
       <div className="px-6 lg:px-8">
         <div className="mx-auto md:max-w-7xl">
           <div className="mx-auto flex w-full flex-col items-start md:flex-row md:space-x-12">
@@ -111,6 +114,7 @@ export default function ComponentLayout({
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

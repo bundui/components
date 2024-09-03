@@ -1,5 +1,5 @@
-import { NAVIGATION } from '@/lib/routes';
-import { MetadataRoute } from 'next';
+import { NAVIGATION } from "@/app/docs/routes";
+import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = `${process.env.BASE_URL}`;
@@ -11,8 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       docNavigationItems.push({
         url: `${process.env.BASE_URL}${item.href}`,
         lastModified: new Date(),
-        changeFrequency: 'daily',
-        priority: 1
+        changeFrequency: "daily",
+        priority: 1,
       });
     });
   });
@@ -21,9 +21,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: url,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1
+      changeFrequency: "yearly",
+      priority: 1,
     },
-    ...docNavigationItems
+    ...docNavigationItems,
   ];
 }
