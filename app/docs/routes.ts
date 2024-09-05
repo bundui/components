@@ -47,8 +47,8 @@ export const NAVIGATION: NavigationGroup[] = [
         isNew: true,
       },
       {
-        name: "Marquee Animation",
-        href: "/docs/components/marquee-animation",
+        name: "Marquee Effect",
+        href: "/docs/components/marquee-effect",
         isNew: true,
       },
       {

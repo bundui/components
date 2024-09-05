@@ -8,9 +8,8 @@ import { Metadata } from "next";
 import Header from "@/components/website/header";
 import Footer from "@/components/website/footer";
 import AnimatedGradientTextExamle from "@/components/examples/animated-gradient-text";
-import MarqueeAnimationExample from "@/components/examples/marquee-animation";
+import MarqueeEffectExample from "@/components/examples/marquee-effect";
 import CountAnimationExamle from "@/components/examples/count-animation";
-import TextGradientScrollExample from "@/components/examples/text-gradient-scroll";
 
 export const metadata: Metadata = {
   title: "Bundui - Tailwind CSS and Framer Motion components",
@@ -96,7 +95,7 @@ export default function Motion() {
             <AnimatedGradientTextExamle />
           </CardExample>
           <CardExample>
-            <MarqueeAnimationExample />
+            <MarqueeEffectExample />
           </CardExample>
           <CardExample>
             <CountAnimationExamle />
