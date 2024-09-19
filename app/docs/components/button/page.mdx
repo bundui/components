@@ -1,0 +1,51 @@
+export const metadata = {
+  title: "Button - Bundui",
+  description:
+    "An animated button component to enhance your app's user experience and interactivity.",
+};
+
+import BaseButtonExample from "@/components/examples/button/base";
+import LinkButtonExample from "@/components/examples/button/link-button";
+import ComponentCodePreview from "@/components/website/component-code-preview";
+import CodeBlock from "@/components/website/code-block";
+import CodeRenderer from "@/components/website/code-renderer";
+
+# Button
+
+An animated button component to enhance your app's user experience and interactivity. This example was made with Tailwind CSS and Framer Motion.
+
+<ComponentCodePreview
+  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
+  component={<BaseButtonExample />}
+  filePath="examples/button/base"
+/>
+
+## Link Button
+
+<ComponentCodePreview
+  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
+  component={<LinkButtonExample />}
+  filePath="examples/button/link-button"
+/>
+
+## Installation
+
+### Install the following dependencies:
+
+<CodeRenderer code="npm i framer-motion" lang="bash" />
+
+### Copy and paste the following code into your project.
+
+<CodeBlock filePath="components/ui/button.tsx" />
+
+### Usage
+
+<CodeBlock filePath="components/examples/button/base.tsx" />
+
+## API
+
+| Prop      | Type      | Default | Description                                                            |
+| :-------- | :-------- | :------ | :--------------------------------------------------------------------- |
+| asChild   | boolean   | `false` | Determines if the button should render as a child element.             |
+| children  | ReactNode |         | The content of the button, which can be text, elements, or components. |
+| className | string    |         | Optional CSS class for styling the button.                             |

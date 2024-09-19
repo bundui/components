@@ -24,6 +24,15 @@ export const NAVIGATION: NavigationGroup[] = [
     ],
   },
   {
+    name: "Base",
+    children: [
+      {
+        name: "Button",
+        href: "/docs/components/button",
+      },
+    ],
+  },
+  {
     name: "Components",
     children: [
       {
