@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { RotateCw } from "lucide-react";
 import { cloneElement, useState } from "react";
+import { ScrollArea } from "./scroll-area";
 
 type ComponentPreviewProps = {
   component: React.ReactElement;
@@ -23,7 +24,7 @@ export default function ComponentPreview({
   return (
     <div
       className={cn(
-        "flex min-h-[350px] max-h-[350px] w-full overflow-auto items-center justify-center rounded-md",
+        "flex  w-full overflow-auto2 items-center justify-center rounded-md",
         className
       )}
     >

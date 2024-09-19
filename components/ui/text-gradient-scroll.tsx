@@ -1,13 +1,17 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { createContext, useContext, useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+type TextOpacityEnum = "none" | "soft" | "medium";
+type ViewTypeEnum = "word" | "letter";
+
 type TextGradientScrollType = {
   text: string;
-  type?: string;
+  type?: ViewTypeEnum;
   className?: string;
+  textOpacity?: TextOpacityEnum;
 };
 
 type LetterType = {
@@ -28,44 +32,52 @@ type CharType = {
   range: number[];
 };
 
+type TextGradientScrollContextType = {
+  textOpacity?: TextOpacityEnum;
+  type?: ViewTypeEnum;
+};
+
+const TextGradientScrollContext = createContext<TextGradientScrollContextType>(
+  {}
+);
+
+function useGradientScroll() {
+  const context = useContext(TextGradientScrollContext);
+  return context;
+}
+
 export default function TextGradientScroll({
   text,
-  type,
   className,
+  type = "letter",
+  textOpacity = "soft",
 }: TextGradientScrollType) {
-  const container = useRef<HTMLParagraphElement>(null);
+  const ref = useRef<HTMLParagraphElement>(null);
   const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start center", "start 0.25"],
+    target: ref,
+    offset: ["start center", "end center"],
   });
 
   const words = text.split(" ");
+
   return (
-    <p
-      ref={container}
-      className={cn(className)}
-      style={{
-        margin: 0,
-        display: "flex",
-        lineHeight: 1,
-        flexWrap: "wrap",
-        position: "relative",
-      }}
-    >
-      {words.map((word, i) => {
-        const start = i / words.length;
-        const end = start + 1 / words.length;
-        return type === "word" ? (
-          <Word key={i} progress={scrollYProgress} range={[start, end]}>
-            {word}
-          </Word>
-        ) : (
-          <Letter key={i} progress={scrollYProgress} range={[start, end]}>
-            {word}
-          </Letter>
-        );
-      })}
-    </p>
+    <TextGradientScrollContext.Provider value={{ textOpacity, type }}>
+      <p ref={ref} className={cn("relative flex m-0 flex-wrap", className)}>
+        {words.map((word, i) => {
+          const start = i / words.length;
+          const end = start + 1 / words.length;
+          return type === "word" ? (
+            <Word key={i} progress={scrollYProgress} range={[start, end]}>
+              {word}
+            </Word>
+          ) : (
+            <Letter key={i} progress={scrollYProgress} range={[start, end]}>
+              {word}
+            </Letter>
+          );
+        })}
+      </p>
+    </TextGradientScrollContext.Provider>
   );
 }
 
@@ -73,13 +85,7 @@ const Word = ({ children, progress, range }: WordType) => {
   const opacity = useTransform(progress, range, [0, 1]);
 
   return (
-    <span
-      style={{
-        position: "relative",
-        marginRight: 12,
-        marginTop: 12,
-      }}
-    >
+    <span className="relative me-2 mt-2">
       <span style={{ position: "absolute", opacity: 0.1 }}>{children}</span>
       <motion.span style={{ transition: "all .5s", opacity: opacity }}>
         {children}
@@ -94,13 +100,7 @@ const Letter = ({ children, progress, range }: LetterType) => {
     const step = amount / children.length;
 
     return (
-      <span
-        style={{
-          position: "relative",
-          marginRight: 12,
-          marginTop: 12,
-        }}
-      >
+      <span className="relative me-2 mt-2">
         {children.split("").map((char: string, i: number) => {
           const start = range[0] + i * step;
           const end = range[0] + (i + 1) * step;
@@ -117,14 +117,16 @@ const Letter = ({ children, progress, range }: LetterType) => {
 
 const Char = ({ children, progress, range }: CharType) => {
   const opacity = useTransform(progress, range, [0, 1]);
+  const { textOpacity } = useGradientScroll();
 
   return (
     <span>
       <span
-        style={{
-          position: "absolute",
-          opacity: 0.1,
-        }}
+        className={cn("absolute", {
+          "opacity-0": textOpacity == "none",
+          "opacity-10": textOpacity == "soft",
+          "opacity-30": textOpacity == "medium",
+        })}
       >
         {children}
       </span>

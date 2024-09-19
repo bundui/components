@@ -17,15 +17,12 @@ The text gradient scroll component is designed to enhance user interaction by pr
   classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
   component={<TextGradientScrollExample />}
   filePath="examples/text-gradient-scroll"
-  iframeDemo="http://localhost:3001/demo/text-gradient-scroll"
+  iframeDemo="/demo/text-gradient-scroll"
 />
 
 ### Install the following dependencies:
 
-<CodeRenderer
-  code="npm i framer-motion clsx tailwind-merge usehooks-ts"
-  lang="bash"
-/>
+<CodeRenderer code="npm i framer-motion clsx tailwind-merge" lang="bash" />
 
 ### Add util file
 
@@ -38,3 +35,12 @@ The text gradient scroll component is designed to enhance user interaction by pr
 ### Usage
 
 <CodeBlock filePath="components/examples/text-gradient-scroll.tsx" />
+
+## API
+
+| Prop        | Type                         | Default  | Description                                                               |
+| :---------- | :--------------------------- | :------- | :------------------------------------------------------------------------ |
+| text        | string                       |          | The text content to display with gradient effect.                         |
+| className   | string                       |          | Optional CSS class for styling the component.                             |
+| type        | "letter" \| "word"           | "letter" | Determines the type of animation, whether it applies to letters or words. |
+| textOpacity | "none" \| "soft" \| "medium" | "soft"   | Sets the opacity level for the text: none, soft, medium, or strong.       |

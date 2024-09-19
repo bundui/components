@@ -1,35 +1,24 @@
 import TextGradientScroll from "@/components/ui/text-gradient-scroll";
-import { ArrowBigDown } from "lucide-react";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 export default function Page() {
   return (
     <>
-      <div className="max-w-screen-sm mx-auto">
+      <div className="max-w-md mx-auto">
         <div className="h-screen flex items-center justify-center text-xl">
-          Scroll down <ArrowBigDown className="ms-2" />
+          Scroll down <ArrowDown className="w-4 h-4 ms-2" />
         </div>
 
-        <div className="mb-10">
-          <TextGradientScroll text="The text gradient scroll component is designed to enhance user interaction by providing a visually dynamic effect as the user scrolls through the text. Unlike static text, this effect offers a more engaging visual experience with smooth color transitions that change as the text is scrolled. The animated gradient shifts add a modern and interactive touch to the user experience. This example was created using Tailwind CSS and Framer Motion." />
-        </div>
-
-        <div className="mb-10">
+        <div>
           <TextGradientScroll
-            type="word"
+            className="text-xl text-center justify-center text-green"
             text="The text gradient scroll component is designed to enhance user interaction by providing a visually dynamic effect as the user scrolls through the text. Unlike static text, this effect offers a more engaging visual experience with smooth color transitions that change as the text is scrolled. The animated gradient shifts add a modern and interactive touch to the user experience. This example was created using Tailwind CSS and Framer Motion."
-            className="text-green-500"
           />
         </div>
 
-        <p className="mb-10">
-          The text gradient scroll component is designed to enhance user
-          interaction by providing a visually dynamic effect as the user scrolls
-          through the text. Unlike static text, this effect offers a more
-          engaging visual experience with smooth color transitions that change
-          as the text is scrolled. The animated gradient shifts add a modern and
-          interactive touch to the user experience. This example was created
-          using Tailwind CSS and Framer Motion.
-        </p>
+        <div className="h-screen flex items-center justify-center text-xl">
+          Scroll up <ArrowUp className="w-4 h-4 ms-2" />
+        </div>
       </div>
     </>
   );
