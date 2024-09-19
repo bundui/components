@@ -36,6 +36,16 @@ export const NAVIGATION: NavigationGroup[] = [
     name: "Components",
     children: [
       {
+        name: "Animated Gradient Text",
+        href: "/docs/components/animated-gradient-text",
+        isNew: false,
+      },
+      {
+        name: "Count Animation",
+        href: "/docs/components/count-animation",
+        isNew: false,
+      },
+      {
         name: "Floating Button",
         href: "/docs/components/floating-button",
         isNew: false,
@@ -46,24 +56,19 @@ export const NAVIGATION: NavigationGroup[] = [
         isNew: false,
       },
       {
-        name: "Animated Gradient Text",
-        href: "/docs/components/animated-gradient-text",
-        isNew: true,
-      },
-      {
         name: "Text Gradient Scroll",
         href: "/docs/components/text-gradient-scroll",
         isNew: true,
       },
       {
-        name: "Marquee Effect",
-        href: "/docs/components/marquee-effect",
+        name: "Scroll Progress Bar",
+        href: "/docs/components/scroll-progress-bar",
         isNew: true,
       },
       {
-        name: "Count Animation",
-        href: "/docs/components/count-animation",
-        isNew: true,
+        name: "Marquee Effect",
+        href: "/docs/components/marquee-effect",
+        isNew: false,
       },
     ],
   },

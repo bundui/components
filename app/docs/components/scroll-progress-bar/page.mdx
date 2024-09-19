@@ -1,0 +1,57 @@
+export const metadata = {
+  title: "Scroll Progress Bar - Bundui",
+  description:
+    "The scroll progress bar adds a dynamic, interactive scrolling indicator, built with Framer Motion and Tailwind CSS, enhancing user experience with smooth transitions.",
+};
+
+import ScrollProgressBarExample from "@/components/examples/scroll-progress/bar";
+import ScrollProgressCircleExample from "@/components/examples/scroll-progress/circle";
+import ComponentCodePreview from "@/components/website/component-code-preview";
+import CodeBlock from "@/components/website/code-block";
+import CodeRenderer from "@/components/website/code-renderer";
+
+# Scroll Progress Bar
+
+The Scroll Progress Bar component enhances user experience by providing a visually dynamic indicator as the user scrolls through the page. It visually informs users how much of the page has been scrolled, making it especially useful for longer content. Unlike static progress bars, this animated indicator offers a more modern and interactive experience. The scroll bar can be configured as a circular or linear bar and can be positioned in specific corners of the page, such as the bottom-right or top-left. Built using Framer Motion and Tailwind CSS, the Scroll Progress Bar ensures smooth transitions and an aesthetically pleasing design.
+
+<ComponentCodePreview
+  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
+  component={<ScrollProgressBarExample />}
+  filePath="examples/scroll-progress/circle"
+  iframeDemo="/demo/scroll-progress/circle"
+/>
+
+# Bar Style
+
+<ComponentCodePreview
+  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
+  component={<ScrollProgressBarExample />}
+  filePath="examples/scroll-progress/bar"
+  iframeDemo="/demo/scroll-progress/bar"
+/>
+
+### Install the following dependencies:
+
+<CodeRenderer code="npm i framer-motion clsx tailwind-merge" lang="bash" />
+
+### Add util file
+
+<CodeBlock filePath="lib/utils.ts" />
+
+### Copy and paste the following code into your project.
+
+<CodeBlock filePath="components/ui/scroll-progress-bar.tsx" />
+
+### Usage
+
+<CodeBlock filePath="components/examples/scroll-progress/bar.tsx" />
+
+## API
+
+| Prop           | Type                                                                 | Default                 | Description                                                                 |
+| :------------- | :------------------------------------------------------------------- | :---------------------- | :-------------------------------------------------------------------------- |
+| type           | `"circle"` \| `"bar"`                                                | `"circle"`              | Determines the style of the progress bar: a circular progress bar or a bar. |
+| position       | `"top-right"` \| `"bottom-right"` \| `"top-left"` \| `"bottom-left"` | `"bottom-right"`        | Sets the position of the progress indicator on the screen.                  |
+| color          | string                                                               | `"hsl(var(--primary))"` | The color of the progress bar or circle stroke.                             |
+| strokeSize     | number                                                               | `2`                     | The stroke size for the circular progress bar or height for the bar.        |
+| showPercentage | boolean                                                              | `false`                 | Determines if the percentage value should be displayed within the circle.   |
