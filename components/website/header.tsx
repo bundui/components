@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import GitHubIcon from './icons/github';
-import XIcon from './icons/x';
-import Logo from './logo';
-import ThemeSwitch from './theme-switch';
+import GitHubIcon from "./icons/github";
+import XIcon from "./icons/x";
+import Logo from "./logo";
+import ThemeSwitch from "./theme-switch";
 
 export default function Header() {
   return (
@@ -15,14 +15,16 @@ export default function Header() {
             href="https://twitter.com/bunduidotio"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-9 w-9 items-center justify-center">
+            className="inline-flex h-9 w-9 items-center justify-center"
+          >
             <XIcon className="h-4 w-4 fill-zinc-950 dark:fill-white" />
           </a>
           <a
             href="https://github.com/bundui/components"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-9 w-9 items-center justify-center">
+            className="inline-flex h-9 w-9 items-center justify-center"
+          >
             <GitHubIcon className="h-4 w-4 fill-zinc-950 dark:fill-white" />
           </a>
           <ThemeSwitch />

@@ -20,7 +20,7 @@ const Button = React.forwardRef<
   MotionButtonProps & HTMLButtonProps
 >(({ asChild = false, children, className, ...props }, ref) => {
   const classNames = cn(
-    "flex h-12 px-6 items-center bg-primary text-white rounded-lg",
+    "flex h-12 px-6 items-center justify bg-primary text-white rounded-lg",
     className
   );
 

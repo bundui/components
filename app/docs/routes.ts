@@ -51,6 +51,11 @@ export const NAVIGATION: NavigationGroup[] = [
         isNew: false,
       },
       {
+        name: "3D Tilt Effect",
+        href: "/docs/components/3d-tilt-effect",
+        isNew: true,
+      },
+      {
         name: "Magnetic Button",
         href: "/docs/components/magnetic-button",
         isNew: false,
@@ -58,12 +63,12 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: "Text Gradient Scroll",
         href: "/docs/components/text-gradient-scroll",
-        isNew: true,
+        isNew: false,
       },
       {
         name: "Scroll Progress Bar",
         href: "/docs/components/scroll-progress-bar",
-        isNew: true,
+        isNew: false,
       },
       {
         name: "Marquee Effect",

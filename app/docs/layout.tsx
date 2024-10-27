@@ -34,7 +34,7 @@ function NavigationDesktop() {
                         <li key={child.href}>
                           <Link
                             className={cn(
-                              "relative inline-flex items-center space-x-1 pl-4 text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white",
+                              "relative inline-flex items-center space-x-2 pl-4 text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white",
                               isActive &&
                                 "text-zinc-950 before:absolute before:inset-y-0 before:left-[-1.5px] before:w-[2px] before:rounded-full before:bg-zinc-950 dark:text-white dark:before:bg-white"
                             )}
@@ -42,7 +42,7 @@ function NavigationDesktop() {
                           >
                             <span>{child.name}</span>
                             {child?.isNew && (
-                              <span className="whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold border border-emerald-300">
+                              <span className="whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold border border-emerald-300 dark:bg-emerald-900">
                                 New
                               </span>
                             )}
