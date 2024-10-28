@@ -58,6 +58,18 @@ export default function Motion() {
       <div className="px-6 py-4 pb-20">
         <section className="flex h-full flex-col items-center justify-center pt-20">
           <div className="flex w-full max-w-lg lg:max-w-xl flex-col items-center justify-center text-center">
+            <Link
+              href="https://cosmic.shadcnuikit.com/"
+              target="_blank"
+              className="flex gap-4 items-center border hover:border-slate-300 text-sm rounded-full px-3 py-2 mb-6"
+            >
+              <span className="bg-green-100 text-green-600 border border-green-300 rounded-full px-3 py-0.5">
+                New Template
+              </span>
+              <span>
+                <b>Cosmic</b> - SaaS Landing Page Template
+              </span>
+            </Link>
             <h1 className="relative mb-4 text-3xl lg:text-5xl font-semibold text-zinc-950 dark:text-zinc-50">
               Build beautiful animated components
             </h1>
