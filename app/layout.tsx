@@ -4,8 +4,7 @@ import Script from "next/script";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/website/theme-provider";
 import { GeistMono } from "geist/font/mono";
-import Header from "@/components/website/header";
-import Footer from "@/components/website/footer";
+import GoogleAnalyticsInit from "@/lib/ga";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,6 +38,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class">
           <div className="isolate min-h-screen">{children}</div>
         </ThemeProvider>
+        {process.env.NODE_ENV === "production" ? <GoogleAnalyticsInit /> : null}
       </body>
     </html>
   );
