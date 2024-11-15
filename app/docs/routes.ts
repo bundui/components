@@ -75,6 +75,11 @@ export const NAVIGATION: NavigationGroup[] = [
         href: "/docs/components/marquee-effect",
         isNew: false,
       },
+      {
+        name: "Wave Effect",
+        href: "/docs/components/wave-effect",
+        isNew: true,
+      },
     ],
   },
 ];

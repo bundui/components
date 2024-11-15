@@ -1,0 +1,62 @@
+export const metadata = {
+  title: "Scroll Progress Bar - Bundui",
+  description:
+    "Wave effect is a modern animation component designed to enrich user interaction by creating a dynamic ripple effect when clicking on buttons or any HTML element. Built with Tailwind CSS and Framer Motion.",
+};
+
+import { WaveEffectButton } from "@/components/examples/wave-effect/button";
+import { WaveEffectImage } from "@/components/examples/wave-effect/image";
+import { WaveEffectColored } from "@/components/examples/wave-effect/colored";
+
+import ComponentCodePreview from "@/components/website/component-code-preview";
+import CodeBlock from "@/components/website/code-block";
+import CodeRenderer from "@/components/website/code-renderer";
+
+# Wave Effect
+
+Wave effect is a modern animation component designed to enrich user interaction by creating a dynamic ripple effect when clicking on buttons or any HTML element. This component generates a visual wave effect, making the user experience more interactive and visually appealing. Perfect for modern web designs. Built with Tailwind CSS and Framer Motion.
+
+## Button
+
+<ComponentCodePreview
+  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
+  component={<WaveEffectButton />}
+  filePath="examples/wave-effect/button"
+/>
+
+## Image
+
+<ComponentCodePreview
+  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
+  component={<WaveEffectImage />}
+  filePath="examples/wave-effect/image"
+/>
+
+## Colored
+
+<ComponentCodePreview
+  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
+  component={<WaveEffectColored />}
+  filePath="examples/wave-effect/colored"
+/>
+
+### Install the following dependencies:
+
+<CodeRenderer code="npm i framer-motion clsx tailwind-merge" lang="bash" />
+
+### Add util file
+
+<CodeBlock filePath="lib/utils.ts" />
+
+### Copy and paste the following code into your project.
+
+<CodeBlock filePath="components/ui/wave-effect.tsx" />
+
+## API
+
+| Prop        | Type                                | Default      | Description                                                                                            |
+| :---------- | :---------------------------------- | :----------- | :----------------------------------------------------------------------------------------------------- |
+| `children`  | `React.ReactNode`                   | `-`          | The content or elements that are wrapped by the component.                                             |
+| `color`     | `string` (Tailwind CSS color class) | `"bg-white"` | The color of the ripple effect. Can be a Tailwind CSS color class such as `bg-red-500`, `bg-blue-300`. |
+| `className` | `string`                            | `""`         | Custom CSS classes for further styling or overriding default styles.                                   |
+| `duration`  | `number`                            | `0.6`        | The duration of the ripple animation in seconds.                                                       |
