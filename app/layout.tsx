@@ -1,6 +1,5 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/website/theme-provider";
 import { GeistMono } from "geist/font/mono";
