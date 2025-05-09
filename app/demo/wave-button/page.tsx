@@ -4,12 +4,12 @@ export default function Page() {
   return (
     <>
       <WaveEffect>
-        <button className="px-6 py-3 h-20 bg-blue-500 text-white rounded-lg focus:outline-none">
+        <button className="px-6 py-3 h-20 bg-blue-500 text-white rounded-lg focus:outline-hidden">
           Buna tikla beee
         </button>
       </WaveEffect>
       <WaveEffect className="bg-indigo-500">
-        <button className="px-6 py-3 h-20 bg-black text-white rounded-lg focus:outline-none">
+        <button className="px-6 py-3 h-20 bg-black text-white rounded-lg focus:outline-hidden">
           Buna tikla beee
         </button>
       </WaveEffect>

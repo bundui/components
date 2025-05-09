@@ -43,7 +43,7 @@ function Button({
 
 function CardExample({ children }: { children: React.ReactNode }) {
   return (
-    <div className="border relative w-full rounded-lg bg-zinc-50 p-4 shadow-[0px_0px_0px_1px_theme(colors.zinc.100),0px_2px_2px_0px_theme(colors.zinc.50)] dark:border dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none">
+    <div className="border relative w-full rounded-lg bg-zinc-50 p-4 shadow-[0px_0px_0px_1px_var(--color-zinc-100),0px_2px_2px_0px_var(--color-zinc-50)] dark:border dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none">
       <div className="flex h-[400px] items-center justify-center">
         {children}
       </div>
@@ -97,7 +97,7 @@ export default function Motion() {
             </a>
           </div>
         </section>
-        <section className="container grid grid-cols-2 mx-auto max-w-screen-xl py-32 gap-4 lg:gap-10">
+        <section className="container grid grid-cols-2 mx-auto max-w-(--breakpoint-xl) py-32 gap-4 lg:gap-10">
           <CardExample>
             <ThreeDTiltEffectExample />
           </CardExample>
