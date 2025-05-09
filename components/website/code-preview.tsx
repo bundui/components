@@ -1,7 +1,6 @@
 "use client";
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
-import { umamiTrack } from "@/lib/umami";
 
 type CodePreviewProps = {
   code: string;
@@ -15,10 +14,6 @@ export default function CodePreview({ code, children }: CodePreviewProps) {
     navigator.clipboard.writeText(code);
     setHasCheckIcon(true);
 
-    umamiTrack({
-      name: "Copy Code",
-    });
-
     setTimeout(() => {
       setHasCheckIcon(false);
     }, 1000);
@@ -28,7 +23,6 @@ export default function CodePreview({ code, children }: CodePreviewProps) {
     <div className="relative">
       <div
         className="absolute right-4 top-4 cursor-pointer bg-transparent p-2"
-        data-umami-event="Copy Code 2"
         onClick={onCopy}
       >
         <div
