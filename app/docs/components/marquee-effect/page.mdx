@@ -5,10 +5,7 @@ export const metadata = {
 };
 
 import MarqueeEffectExample from "@/components/examples/marquee-effect";
-import MarqueeEffectDoubleExample from "@/components/examples/marquee-effect-double";
-import ComponentCodePreview from "@/components/website/component-code-preview";
-import CodeBlock from "@/components/website/code-block";
-import CodeRenderer from "@/components/website/code-renderer";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 # Marquee Effect
 
@@ -17,23 +14,24 @@ The marquee component is designed to create a dynamic user experience by continu
 ## Examples
 
 <ComponentCodePreview
-  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8 overflow-hidden"
+  classNameComponentContainer="min-h-0 py-24"
   component={<MarqueeEffectExample />}
   filePath="examples/marquee-effect"
 />
 
-### Reverse routing
+## Installation
 
-<ComponentCodePreview
-  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8 overflow-hidden"
-  component={<MarqueeEffectDoubleExample />}
-  filePath="examples/marquee-effect-double"
-/>
+<Tabs defaultValue="manuel" className="w-[400px]">
+    <TabsList>
+        <TabsTrigger value="manuel">Manuel</TabsTrigger>
+        <TabsTrigger disabled value="cli">CLI (Coming Soon)</TabsTrigger>
+    </TabsList>
+</Tabs>
 
 ### Install the following dependencies:
 
 <CodeRenderer
-  code="npm i framer-motion clsx tailwind-merge @motionone/utils"
+  code="npm i motion clsx tailwind-merge react-use-measure"
   lang="bash"
 />
 
@@ -43,8 +41,19 @@ The marquee component is designed to create a dynamic user experience by continu
 
 ### Copy and paste the following code into your project.
 
-<CodeBlock filePath="components/ui/marquee-effect.tsx" />
+<CodeBlock filePath="components/core/marquee-effect.tsx" />
 
-### Usage
+### API
 
-<CodeBlock filePath="components/examples/marquee-effect.tsx" />
+| Prop              | Type                                                | Default      | Description                                                                 |
+|-------------------|-----------------------------------------------------|--------------|-----------------------------------------------------------------------------|
+| children          | `React.ReactNode`                                   |              | The content to be scrolled inside the marquee effect                        |
+| gap               | `number`                                            | `16`         | The gap between each child element in the marquee                           |
+| speed             | `number`                                            | `100`        | The speed of the scrolling animation                                         |
+| speedOnHover      | `number`                                            |              | The speed of the scrolling when the user hovers over the marquee            |
+| direction         | `"horizontal" | "vertical"`                        | `"horizontal"` | The direction of the marquee scroll (horizontal or vertical)                |
+| reverse           | `boolean`                                           | `false`      | Whether to reverse the direction of the marquee scroll                      |
+| className         | `string`                                            |              | Custom className for the marquee container                                   |
+
+
+

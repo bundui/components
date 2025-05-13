@@ -1,0 +1,50 @@
+export const metadata = {
+    title: "Snowfall Animation Background - Bundui",
+    description:
+        "Enhance your website with the peaceful atmosphere of the Snowfall Animation Background. Create a captivating design with gently falling snowflakes for a serene and wintery experience.",
+};
+
+import SnowfallBackgroundExample from "@/components/examples/backgrounds/snowfall";
+
+# Stars Background
+
+The Snowfall Animation Background offers a winter-inspired animated backdrop that brings a serene atmosphere to your website. Snowflakes gently fall across the screen, creating a peaceful and magical environment. This background is perfect for winter-themed projects, holiday websites, portfolios, or any design needing a cozy and atmospheric touch. The natural movement of the snowflakes provides a visually engaging experience, drawing users in and enhancing the overall aesthetic. The slow, continuous animation offers a calming effect, making it a great choice for giving your visitors a relaxing and immersive experience.
+
+<ComponentCodePreview
+    component={<SnowfallBackgroundExample/>}
+    filePath="examples/backgrounds/snowfall"
+/>
+
+## Installation
+
+<Tabs defaultValue="manuel" className="w-[400px]">
+    <TabsList>
+        <TabsTrigger value="manuel">Manuel</TabsTrigger>
+        <TabsTrigger disabled value="cli">CLI (Coming Soon)</TabsTrigger>
+    </TabsList>
+</Tabs>
+
+### Install the following dependencies:
+
+<CodeRenderer code={`npm i next-themes clsx tailwind-merge`} lang="bash"/>
+
+### Add utils file
+
+<CodeBlock filePath="lib/utils.ts" />
+
+### Copy and paste the following code into your project:
+
+<CodeBlock filePath="components/core/backgrounds/snowfall.tsx" />
+
+### API
+
+| **Prop**         | **Type**            | **Default** | **Description**  |
+|------------------|---------------------|-------------|----------------------------------------------------------|
+| `children`       | `React.ReactNode`    |            | The content to be displayed over the snowfall background. |
+| `count`          | `number`            | `100`       | The number of snowflakes to be displayed. A larger number can make the snowfall more dense. |
+| `minRadius`      | `number`            | `1`         | The minimum radius of each snowflake. |
+| `maxRadius`      | `number`            | `4`         | The maximum radius of each snowflake. |
+| `minSpeed`       | `number`            | `0.5`       | The minimum falling speed of the snowflakes. |
+| `maxSpeed`       | `number`            | `2`         | The maximum falling speed of the snowflakes. |
+| `wind`           | `number`            | `0.5`       | The wind effect that moves the snowflakes horizontally. |
+| `className`      | `string`            | `undefined`        | Optional Tailwind/CSS classes for custom styling on the outer container. |

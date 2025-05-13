@@ -1,21 +1,22 @@
-import Link from "next/link";
 import React from "react";
-import GitHubIcon from "@/components/website/icons/github";
+import { Metadata } from "next";
+import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+
+import GitHubIcon from "@/components/website/icons/github";
 import FloatingButtonExample from "@/components/examples/floating-button";
 import MagneticButtonExample from "@/components/examples/magnetic-button";
-import { Metadata } from "next";
 import Header from "@/components/website/header";
 import Footer from "@/components/website/footer";
-import AnimatedGradientTextExamle from "@/components/examples/animated-gradient-text";
+import AnimatedGradientTextExample from "@/components/examples/animated-gradient-text";
 import MarqueeEffectExample from "@/components/examples/marquee-effect";
-import CountAnimationExamle from "@/components/examples/count-animation";
+import CountAnimationExample from "@/components/examples/count-animation/base";
 import ThreeDTiltEffectExample from "@/components/examples/3d-tilt-effect";
 
 export const metadata: Metadata = {
-  title: "Bundui - Tailwind CSS and Framer Motion components",
+  title: "Bundui - Tailwind CSS and Motion components for your project",
   description:
-    "Perfect for enhancing your web projects with beautiful, fluid animations. A collection of open source, customizable motion components. Built with Tailwind CSS and Framer Motion.",
+    "Perfect for enhancing your web projects with beautiful, fluid animations. A collection of open source, customizable motion components. Built with Tailwind CSS and Motion.",
 };
 
 function Button({
@@ -58,22 +59,10 @@ export default function Motion() {
       <div className="px-6 py-4 pb-20">
         <section className="flex h-full flex-col items-center justify-center pt-20">
           <div className="flex w-full max-w-lg lg:max-w-xl flex-col items-center justify-center text-center">
-            <Link
-              href="https://cosmic.shadcnuikit.com/"
-              target="_blank"
-              className="flex gap-4 items-center border hover:border-slate-300 text-sm rounded-full px-3 py-2 mb-6"
-            >
-              <span className="bg-green-100 text-green-600 border border-green-300 rounded-full px-3 py-0.5">
-                New Template
-              </span>
-              <span>
-                <b>Cosmic</b> - SaaS Landing Page Template
-              </span>
-            </Link>
-            <h1 className="relative mb-4 text-3xl lg:text-5xl font-semibold text-zinc-950 dark:text-zinc-50">
+            <h1 className="relative mb-4 text-3xl lg:text-5xl font-semibold text-foreground">
               Build beautiful animated components
             </h1>
-            <p className="text-center text-zinc-600 dark:text-zinc-200">
+            <p className="text-center text-muted-foreground">
               Beautifully designed motions components. Easy copy-paste.
               Customizable. Open Source. Built for engineers and designers.
             </p>
@@ -102,7 +91,7 @@ export default function Motion() {
             <ThreeDTiltEffectExample />
           </CardExample>
           <CardExample>
-            <CountAnimationExamle />
+            <CountAnimationExample />
           </CardExample>
           <CardExample>
             <FloatingButtonExample />
@@ -111,7 +100,7 @@ export default function Motion() {
             <MagneticButtonExample />
           </CardExample>
           <CardExample>
-            <AnimatedGradientTextExamle />
+            <AnimatedGradientTextExample />
           </CardExample>
           <CardExample>
             <MarqueeEffectExample />

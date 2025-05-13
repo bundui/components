@@ -1,4 +1,4 @@
-import MagneticButton from '@/components/ui/magnetic-button';
+import MagneticButton from "@/components/core/magnetic-button";
 
 export default function MagneticButtonExample() {
   return (

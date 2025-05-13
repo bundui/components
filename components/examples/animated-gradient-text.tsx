@@ -1,9 +1,10 @@
-import AnimatedGradientText from "@/components/ui/animated-gradient-text";
+import AnimatedGradientText from "@/components/core/animated-gradient-text";
 
 export default function AnimatedGradientTextExamle() {
   return (
-    <>
-      <AnimatedGradientText text="Animated Gradient Text" />
-    </>
+    <AnimatedGradientText
+      text="Thinking..."
+      className="lg:text-2xl font-medium"
+    />
   );
 }

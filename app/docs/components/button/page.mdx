@@ -5,14 +5,11 @@ export const metadata = {
 };
 
 import BaseButtonExample from "@/components/examples/button/base";
-import LinkButtonExample from "@/components/examples/button/link-button";
-import ComponentCodePreview from "@/components/website/component-code-preview";
-import CodeBlock from "@/components/website/code-block";
-import CodeRenderer from "@/components/website/code-renderer";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 # Button
 
-An animated button component to enhance your app's user experience and interactivity. This example was made with Tailwind CSS and Framer Motion.
+Button component for redirects and forms.
 
 <ComponentCodePreview
   classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
@@ -20,32 +17,26 @@ An animated button component to enhance your app's user experience and interacti
   filePath="examples/button/base"
 />
 
-## Link Button
-
-<ComponentCodePreview
-  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
-  component={<LinkButtonExample />}
-  filePath="examples/button/link-button"
-/>
-
 ## Installation
+
+<Tabs defaultValue="manuel" className="w-[400px]">
+    <TabsList>
+        <TabsTrigger value="manuel">Manuel</TabsTrigger>
+        <TabsTrigger disabled value="cli">CLI (Coming Soon)</TabsTrigger>
+    </TabsList>
+</Tabs>
 
 ### Install the following dependencies:
 
-<CodeRenderer code="npm i framer-motion" lang="bash" />
+<CodeRenderer code="npm i @radix-ui/react-slot class-variance-authority" lang="bash" />### Add util file
+
+<CodeBlock filePath="lib/utils.ts" />
 
 ### Copy and paste the following code into your project.
 
 <CodeBlock filePath="components/ui/button.tsx" />
 
-### Usage
-
-<CodeBlock filePath="components/examples/button/base.tsx" />
 
 ## API
 
-| Prop      | Type      | Default | Description                                                            |
-| :-------- | :-------- | :------ | :--------------------------------------------------------------------- |
-| asChild   | boolean   | `false` | Determines if the button should render as a child element.             |
-| children  | ReactNode |         | The content of the button, which can be text, elements, or components. |
-| className | string    |         | Optional CSS class for styling the button.                             |
+<a href="https://ui.shadcn.com/docs/components/button" target="_blank">Visit the official page</a> for more options.

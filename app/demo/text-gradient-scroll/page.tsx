@@ -1,4 +1,4 @@
-import TextGradientScroll from "@/components/ui/text-gradient-scroll";
+import TextGradientScroll from "@/components/core/text-gradient-scroll";
 import { ArrowDown, ArrowUp } from "lucide-react";
 
 export default function Page() {

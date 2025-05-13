@@ -1,0 +1,49 @@
+export const metadata = {
+    title: "Fluid Particles Background - Bundui",
+    description:
+        "The Geometric Background component features a modern and sophisticated design, incorporating dynamic geometric shapes like triangles, squares, and polygons. These shapes subtly animate across the screen, adding a unique and engaging element to your website's background. Perfect for tech, creative, and professional websites, the geometric pattern adapts effortlessly to both light and dark themes, creating a sleek and visually striking experience for users.",
+};
+
+import FluidParticlesBackgroundExample from "@/components/examples/backgrounds/fluid-particles";
+
+# Fluid Particles Background
+
+The Fluid Particles Background is an interactive and dynamic background that utilizes floating, fluid-like particles to create a mesmerizing effect on your website.
+
+<ComponentCodePreview
+    component={<FluidParticlesBackgroundExample/>}
+    filePath="examples/backgrounds/fluid-particles"
+/>
+
+## Installation
+
+<Tabs defaultValue="manuel" className="w-[400px]">
+    <TabsList>
+        <TabsTrigger value="manuel">Manuel</TabsTrigger>
+        <TabsTrigger disabled value="cli">CLI (Coming Soon)</TabsTrigger>
+    </TabsList>
+</Tabs>
+
+### Install the following dependencies:
+
+<CodeRenderer code={`npm i clsx tailwind-merge`} lang="bash"/>
+
+### Add utils file
+
+<CodeBlock filePath="lib/utils.ts" />
+
+### Copy and paste the following code into your project:
+
+<CodeBlock filePath="components/core/backgrounds/fluid-particles.tsx" />
+
+### API
+
+| Prop       | Type                               | Default Value   | Description                                                                 |
+|-----------------|------------------------------------|-----------------|-----------------------------------------------------------------------------|
+| `children`      | `React.ReactNode`                  | `undefined`     | The content that will be rendered inside the component.                      |
+| `particleCount` | `number`                           | `2000`          | The number of particles to generate in the background.                      |
+| `noiseIntensity`| `number`                           | `0.003`         | The intensity of the noise effect, influencing particle movement.            |
+| `particleSize`  | `{ min: number; max: number }`     | `{ min: 0.5, max: 2 }` | The minimum and maximum size of each particle.                                 |
+| `className`     | `string`                           | `undefined`     | Optional Tailwind/CSS classes for custom styling on the outer container.                            |
+
+

@@ -5,10 +5,7 @@ export const metadata = {
 };
 
 import ScrollProgressBarExample from "@/components/examples/scroll-progress/bar";
-import ScrollProgressCircleExample from "@/components/examples/scroll-progress/circle";
-import ComponentCodePreview from "@/components/website/component-code-preview";
-import CodeBlock from "@/components/website/code-block";
-import CodeRenderer from "@/components/website/code-renderer";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 # Scroll Progress Bar
 
@@ -30,9 +27,18 @@ The Scroll Progress Bar component enhances user experience by providing a visual
   iframeDemo="/demo/scroll-progress/bar"
 />
 
+## Installation
+
+<Tabs defaultValue="manuel" className="w-[400px]">
+    <TabsList>
+        <TabsTrigger value="manuel">Manuel</TabsTrigger>
+        <TabsTrigger disabled value="cli">CLI (Coming Soon)</TabsTrigger>
+    </TabsList>
+</Tabs>
+
 ### Install the following dependencies:
 
-<CodeRenderer code="npm i framer-motion clsx tailwind-merge" lang="bash" />
+<CodeRenderer code="npm i motion clsx tailwind-merge" lang="bash" />
 
 ### Add util file
 
@@ -40,18 +46,15 @@ The Scroll Progress Bar component enhances user experience by providing a visual
 
 ### Copy and paste the following code into your project.
 
-<CodeBlock filePath="components/ui/scroll-progress-bar.tsx" />
+<CodeBlock filePath="components/core/scroll-progress-bar.tsx" />
 
-### Usage
+### API
 
-<CodeBlock filePath="components/examples/scroll-progress/bar.tsx" />
+| Prop            | Type                | Default        | Description                                                                 |
+|-----------------|---------------------|----------------|-----------------------------------------------------------------------------|
+| type            | `"circle" | "bar"`  | `"circle"`      | The type of progress bar, either a circular or bar representation            |
+| position        | `"top-right" | "bottom-right" | "top-left" | "bottom-left"` | `"bottom-right"`  | The position of the progress bar on the screen (top-right, bottom-right, top-left, bottom-left) |
+| color           | `string`            | `var(--primary)`| The color of the progress indicator                                         |
+| strokeSize      | `number`            | `2`            | The stroke size of the circular progress bar or the height of the progress bar |
+| showPercentage  | `boolean`           | `false`        | Whether to display the percentage value inside the progress indicator        |
 
-## API
-
-| Prop           | Type                                                                 | Default                 | Description                                                                 |
-| :------------- | :------------------------------------------------------------------- | :---------------------- | :-------------------------------------------------------------------------- |
-| type           | `"circle"` \| `"bar"`                                                | `"circle"`              | Determines the style of the progress bar: a circular progress bar or a bar. |
-| position       | `"top-right"` \| `"bottom-right"` \| `"top-left"` \| `"bottom-left"` | `"bottom-right"`        | Sets the position of the progress indicator on the screen.                  |
-| color          | string                                                               | `"hsl(var(--primary))"` | The color of the progress bar or circle stroke.                             |
-| strokeSize     | number                                                               | `2`                     | The stroke size for the circular progress bar or height for the bar.        |
-| showPercentage | boolean                                                              | `false`                 | Determines if the percentage value should be displayed within the circle.   |

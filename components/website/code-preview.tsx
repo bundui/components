@@ -1,6 +1,7 @@
 "use client";
+
 import { Check, Copy } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 type CodePreviewProps = {
   code: string;

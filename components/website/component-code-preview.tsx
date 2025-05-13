@@ -1,4 +1,5 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
+import React from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CodePreview from "./code-preview";
 import CodeRenderer from "./code-renderer";
 import ComponentPreview from "./component-preview";
@@ -24,11 +25,14 @@ export default function ComponentCodePreview({
   return (
     <div className="not-prose relative z-0 flex items-center justify-between pb-3">
       <Tabs defaultValue="preview" className="relative mr-auto w-full">
-        <TabsList className="">
+        <TabsList className="border-0">
           <TabsTrigger value="preview">Preview</TabsTrigger>
           <TabsTrigger value="code">Code</TabsTrigger>
         </TabsList>
-        <TabsContent value="preview">
+        <TabsContent
+          className="overflow-hidden border rounded-md"
+          value="preview"
+        >
           {iframeDemo ? (
             <iframe className="w-full h-[400px]" src={iframeDemo} />
           ) : (

@@ -1,29 +1,47 @@
 export const metadata = {
   title: "Count Animation - Bundui",
   description:
-    "Enhance user experience with count animation, dynamically animating numbers to draw attention to key data points. Created using Tailwind CSS and Framer Motion.",
+    "Enhance user experience with count animation, dynamically animating numbers to draw attention to key data points. Built with Tailwind CSS and Motion.",
 };
 
-import CountAnimationExamle from "@/components/examples/count-animation";
-import ComponentCodePreview from "@/components/website/component-code-preview";
-import CodeBlock from "@/components/website/code-block";
-import CodeRenderer from "@/components/website/code-renderer";
+import CountAnimationExample from "@/components/examples/count-animation/base";
+import CountAnimationPrefixExample from "@/components/examples/count-animation/prefix";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 # Count Animation
 
-The count animation component is designed to create a captivating user experience by animating numerical values as they increase or decrease. This effect draws the user's attention to important data, making the information more dynamic and engaging. Whether it's displaying statistics, financial figures, or progress counters, the smooth animation of numbers adds a sense of liveliness and interactivity to your interface. This example was created using Tailwind CSS and Framer Motion.
+The count animation component is designed to create a captivating user experience by animating numerical values as they increase or decrease. This effect draws the user's attention to important data, making the information more dynamic and engaging. Whether it's displaying statistics, financial figures, or progress counters, the smooth animation of numbers adds a sense of liveliness and interactivity to your interface.
 
-## Examples
+## Usage
 
 <ComponentCodePreview
   classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
-  component={<CountAnimationExamle />}
-  filePath="examples/count-animation"
+  component={<CountAnimationExample />}
+  filePath="examples/count-animation/base"
+  hasReTrigger
 />
+
+## Prefix
+
+<ComponentCodePreview
+  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
+  component={<CountAnimationPrefixExample />}
+  filePath="examples/count-animation/prefix"
+  hasReTrigger
+/>
+
+## Installation
+
+<Tabs defaultValue="manuel" className="w-[400px]">
+    <TabsList>
+        <TabsTrigger value="manuel">Manuel</TabsTrigger>
+        <TabsTrigger disabled value="cli">CLI (Coming Soon)</TabsTrigger>
+    </TabsList>
+</Tabs>
 
 ### Install the following dependencies:
 
-<CodeRenderer code="npm i framer-motion clsx tailwind-merge" lang="bash" />
+<CodeRenderer code="npm i motion clsx tailwind-merge" lang="bash" />
 
 ### Add util file
 
@@ -31,8 +49,16 @@ The count animation component is designed to create a captivating user experienc
 
 ### Copy and paste the following code into your project.
 
-<CodeBlock filePath="components/ui/count-animation.tsx" />
+<CodeBlock filePath="components/core/count-animation.tsx" />
 
-### Usage
+### API
 
-<CodeBlock filePath="components/examples/count-animation.tsx" />
+| Prop      | Type     | Default     | Description                                |
+|-----------|----------|-------------|--------------------------------------------|
+| number    | `number` |             | The target number to animate towards       |
+| className | `string` | `undefined` | Optional CSS class for styling             |
+| prefix    | `string` | `undefined` | Text or symbol displayed before the number |
+| suffix    | `string` | `undefined` | Text or symbol displayed after the number  |
+
+
+

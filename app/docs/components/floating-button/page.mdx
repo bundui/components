@@ -5,25 +5,30 @@ export const metadata = {
 };
 
 import FloatingButtonExample from '@/components/examples/floating-button';
-import ComponentCodePreview from '@/components/website/component-code-preview';
-import CodeBlock from '@/components/website/code-block';
-import CodeRenderer from '@/components/website/code-renderer';
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 # Floating Button
 
 A floating button is a common UI component used in user interfaces. It typically appears as a button "floating" over other content, often positioned in a corner of the screen. This button allows users to quickly perform a key action. It is also known as a Floating Action Button (FAB).
 
 <ComponentCodePreview
-  classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
+  classNameComponentContainer="min-h-0 py-42 px-8"
   component={<FloatingButtonExample />}
   filePath="examples/floating-button"
 />
 
 ## Installation
 
+<Tabs defaultValue="manuel" className="w-[400px]">
+    <TabsList>
+        <TabsTrigger value="manuel">Manuel</TabsTrigger>
+        <TabsTrigger disabled value="cli">CLI (Coming Soon)</TabsTrigger>
+    </TabsList>
+</Tabs>
+
 ### Install the following dependencies:
 
-<CodeRenderer code="npm i framer-motion clsx tailwind-merge usehooks-ts" lang="bash" />
+<CodeRenderer code="npm i motion clsx tailwind-merge usehooks-ts" lang="bash" />
 
 ### Add util file
 
@@ -31,8 +36,22 @@ A floating button is a common UI component used in user interfaces. It typically
 
 ### Copy and paste the following code into your project.
 
-<CodeBlock filePath="components/ui/floating-button.tsx" />
+<CodeBlock filePath="components/core/floating-button.tsx" />
 
-### Usage
+### API
 
-<CodeBlock filePath="components/examples/floating-button.tsx" />
+#### `FloatingButton`
+
+| Prop           | Type         | Default     | Description                                              |
+|----------------|--------------|-------------|----------------------------------------------------------|
+| children       | `ReactNode`  |             | The content inside the floating button                   |
+| triggerContent | `ReactNode`  |             | The content that triggers the opening/closing of the button |
+| className      | `string`     | `undefined` | Optional CSS class for styling                           |
+
+#### `FloatingButtonItem`
+
+| Prop      | Type         | Default     | Description                              |
+|-----------|--------------|-------------|------------------------------------------|
+| children  | `ReactNode`  |             | The content inside a floating button item |
+
+

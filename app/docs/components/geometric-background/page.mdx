@@ -1,0 +1,45 @@
+export const metadata = {
+    title: "Geometric Background - Bundui",
+    description:
+        "Transform your website with a dynamic Geometric Background animation.",
+};
+
+import WavyBackgroundExample from "@/components/examples/backgrounds/geometric";
+
+# Geometric Background
+
+The Geometric Background component features a modern and sophisticated design, incorporating dynamic geometric shapes like triangles, squares, and polygons. These shapes subtly animate across the screen, adding a unique and engaging element to your website's background. Perfect for tech, creative, and professional websites, the geometric pattern adapts effortlessly to both light and dark themes, creating a sleek and visually striking experience for users.
+
+<ComponentCodePreview
+    component={<WavyBackgroundExample/>}
+    filePath="examples/backgrounds/geometric"
+/>
+
+## Installation
+
+<Tabs defaultValue="manuel" className="w-[400px]">
+    <TabsList>
+        <TabsTrigger value="manuel">Manuel</TabsTrigger>
+        <TabsTrigger disabled value="cli">CLI (Coming Soon)</TabsTrigger>
+    </TabsList>
+</Tabs>
+
+### Install the following dependencies:
+
+<CodeRenderer code={`npm i motion clsx tailwind-merge`} lang="bash"/>
+
+### Add utils file
+
+<CodeBlock filePath="lib/utils.ts" />
+
+### Copy and paste the following code into your project:
+
+<CodeBlock filePath="components/core/backgrounds/geometric.tsx" />
+
+### API
+
+| Prop       | Type           | Default  | Description                                                         |
+|------------|----------------|----------|---------------------------------------------------------------------|
+| `children` | `React.ReactNode` |         | The content to be rendered inside the background.                    |
+| `className` | `string`        | `undefined`        | Optional Tailwind/CSS classes for custom styling on the outer container.  |
+

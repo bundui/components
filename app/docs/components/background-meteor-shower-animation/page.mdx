@@ -1,0 +1,45 @@
+export const metadata = {
+    title: "Meteor Shower Animation Background - Bundui",
+    description:
+        "Beautiful meteor shower animation background built with React and Canvas. Add dynamic falling meteors to your site with smooth, customizable visuals and minimal performance impact.",
+};
+
+import SnowfallBackgroundExample from "@/components/examples/backgrounds/meteor-shower";
+
+# Meteor Shower Animation
+
+The Meteor Shower Animation background adds a stunning layer of motion and elegance to your UI using canvas-based animation. Inspired by natural meteor showers, each meteor streaks across the screen in a soft, diagonal flow with customizable speed, color, and density. The animation is optimized for performance and reacts responsively to different screen sizes. It's ideal for landing pages, hero sections, or any dark-themed website where subtle, dynamic ambiance enhances the user experience without distraction.
+
+<ComponentCodePreview
+    component={<SnowfallBackgroundExample/>}
+    filePath="examples/backgrounds/meteor-shower"
+/>
+
+## Installation
+
+<Tabs defaultValue="manuel" className="w-[400px]">
+    <TabsList>
+        <TabsTrigger value="manuel">Manuel</TabsTrigger>
+        <TabsTrigger disabled value="cli">CLI (Coming Soon)</TabsTrigger>
+    </TabsList>
+</Tabs>
+
+### Install the following dependencies:
+
+<CodeRenderer code={`npm i next-themes clsx tailwind-merge`} lang="bash"/>
+
+### Add utils file
+
+<CodeBlock filePath="lib/utils.ts" />
+
+### Copy and paste the following code into your project:
+
+<CodeBlock filePath="components/core/backgrounds/meteor-shower.tsx" />
+
+### API
+
+| Prop          | Type                | Default | Description                                                                 |
+|---------------|---------------------|---------|-----------------------------------------------------------------------------|
+| `children`    | `React.ReactNode`    |        | The content to be displayed on top of the meteor shower animation.           |
+| `className`   | `string`             | `undefined`  | Optional Tailwind/CSS classes for custom styling on the outer container. |
+

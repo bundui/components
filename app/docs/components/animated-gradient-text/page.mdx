@@ -5,13 +5,10 @@ export const metadata = {
 };
 
 import AnimatedGradientTextExample from "@/components/examples/animated-gradient-text";
-import ComponentCodePreview from "@/components/website/component-code-preview";
-import CodeBlock from "@/components/website/code-block";
-import CodeRenderer from "@/components/website/code-renderer";
 
 # Animated Gradient Text
 
-Animated gradient text is a UI component designed to be visually striking and engaging. As the user reads the text, the colors smoothly transition, creating a dynamic and captivating effect compared to static text. This type of text is especially effective when used for headings or important highlights, enhancing interaction and adding a modern touch to the user experience. This example was created using Tailwind CSS.
+Animated gradient text is a UI component designed to be visually striking and engaging. As the user reads the text, the colors smoothly transition, creating a dynamic and captivating effect compared to static text. This type of text is especially effective when used for headings or important highlights, enhancing interaction and adding a modern touch to the user experience..
 
 <ComponentCodePreview
   classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
@@ -21,26 +18,37 @@ Animated gradient text is a UI component designed to be visually striking and en
 
 ## Installation
 
-### Add the code to tailwind.config.ts.
+### Install the following dependencies:
+
+<CodeRenderer code={`npm i clsx tailwind-merge`} lang="bash"/>
+
+### Add utils file
+
+<CodeBlock filePath="lib/utils.ts" />
+
+### Add the code to global.css.
 
 <CodeRenderer
-  code={`animation: {
-  "text-gradient": "text-gradient 1.3s linear infinite",
-},
-keyframes: {
-  "text-gradient": {
-    to: {
-      backgroundPosition: "200% center",
-    },
-  },
-},`}
+  code={`@theme {
+      --animate-text-gradient: text-gradient 1.3s linear infinite;
+
+      @keyframes text-gradient {
+          to {
+              background-position: -200% center;
+          }
+      }
+  }`}
   lang="bash"
 />
 
 ### Copy and paste the following code into your project.
 
-<CodeBlock filePath="components/ui/animated-gradient-text.tsx" />
+<CodeBlock filePath="components/core/animated-gradient-text.tsx" />
 
-### Usage
+### API
 
-<CodeBlock filePath="components/examples/animated-gradient-text.tsx" />
+| Prop      | Type     | Default     | Description                                  |
+|-----------|----------|-------------|----------------------------------------------|
+| text      | `string` |             | The text to be displayed with an animated gradient effect |
+| className | `string` | `undefined` | Optional CSS class for additional styling    |
+

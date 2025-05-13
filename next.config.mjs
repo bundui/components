@@ -1,7 +1,6 @@
 import remarkGfm from "remark-gfm";
 import createMDX from "@next/mdx";
 import { remarkCodeHike } from "@code-hike/mdx";
-import { hostname } from "os";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -12,6 +11,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cosmic.shadcnuikit.com",
+      },
+      {
+        protocol: "https",
+        hostname: "bundui-images.netlify.app",
       },
     ],
   },

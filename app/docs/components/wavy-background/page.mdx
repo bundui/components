@@ -1,0 +1,46 @@
+export const metadata = {
+    title: "Wavy Background - Bundui",
+    description:
+        "The Wavy Background component adds a dynamic, flowing wave effect to the background of your website or application.",
+};
+
+import WavyBackgroundExample from "@/components/examples/backgrounds/wavy";
+
+# Wavy Background
+
+The Wavy Background component adds a dynamic, flowing wave effect to the background of your website or application.
+
+<ComponentCodePreview
+    component={<WavyBackgroundExample/>}
+    filePath="examples/backgrounds/wavy"
+/>
+
+## Installation
+
+<Tabs defaultValue="manuel" className="w-[400px]">
+    <TabsList>
+        <TabsTrigger value="manuel">Manuel</TabsTrigger>
+        <TabsTrigger disabled value="cli">CLI (Coming Soon)</TabsTrigger>
+    </TabsList>
+</Tabs>
+
+### Install the following dependencies:
+
+<CodeRenderer code={`npm i clsx tailwind-merge`} lang="bash"/>
+
+### Add utils file
+
+<CodeBlock filePath="lib/utils.ts" />
+
+### Copy and paste the following code into your project:
+
+<CodeBlock filePath="components/core/backgrounds/wavy.tsx" />
+
+### API
+
+| Prop      | Type        | Default     | Description                                      |
+|-----------|-------------|-------------|--------------------------------------------------|
+| `children` | `ReactNode` |             | The content nested inside the component.         |
+| `className` | `string`   | `undefined` | Optional Tailwind/CSS classes for custom styling on the outer container.  |
+
+

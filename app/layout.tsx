@@ -1,5 +1,6 @@
-import "./globals.css";
+import React from "react";
 import type { Metadata } from "next";
+import "./globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/website/theme-provider";
 import { GeistMono } from "geist/font/mono";
@@ -23,9 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} ${GeistMono.variable} bg-white dark:bg-zinc-950`}
+        suppressHydrationWarning
+        className={`${inter.className} ${GeistMono.variable} bg-background`}
       >
         <ThemeProvider attribute="class">
           <div className="isolate min-h-screen">{children}</div>

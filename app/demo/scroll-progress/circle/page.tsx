@@ -1,4 +1,4 @@
-import ScrollProgressBar from "@/components/ui/scroll-progress-bar";
+import ScrollProgressBar from "@/components/core/scroll-progress-bar";
 import { ArrowDown, ArrowUp } from "lucide-react";
 
 export default function Page() {

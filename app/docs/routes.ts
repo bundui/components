@@ -2,6 +2,7 @@ type NavigationItem = {
   name: string;
   href: string;
   isNew?: boolean;
+  isUpdated?: boolean;
 };
 
 type NavigationGroup = {
@@ -38,46 +39,84 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: "Animated Gradient Text",
         href: "/docs/components/animated-gradient-text",
-        isNew: false,
       },
       {
         name: "Count Animation",
         href: "/docs/components/count-animation",
-        isNew: false,
       },
       {
         name: "Floating Button",
         href: "/docs/components/floating-button",
-        isNew: false,
       },
       {
         name: "3D Tilt Effect",
         href: "/docs/components/3d-tilt-effect",
-        isNew: true,
+        isUpdated: true,
       },
       {
         name: "Magnetic Button",
         href: "/docs/components/magnetic-button",
-        isNew: false,
       },
       {
         name: "Text Gradient Scroll",
         href: "/docs/components/text-gradient-scroll",
-        isNew: false,
       },
       {
         name: "Scroll Progress Bar",
         href: "/docs/components/scroll-progress-bar",
-        isNew: false,
       },
       {
         name: "Marquee Effect",
         href: "/docs/components/marquee-effect",
-        isNew: false,
       },
       {
-        name: "Wave Effect",
-        href: "/docs/components/wave-effect",
+        name: "Ripple Effect",
+        href: "/docs/components/ripple-effect",
+        isUpdated: true,
+      },
+    ],
+  },
+  {
+    name: "Backgrounds",
+    children: [
+      {
+        name: "Fireworks Background",
+        href: "/docs/components/fireworks-background",
+        isNew: true,
+      },
+      {
+        name: "Floating Paths",
+        href: "/docs/components/floating-paths-background",
+        isNew: true,
+      },
+      {
+        name: "Stars",
+        href: "/docs/components/stars-background",
+        isNew: true,
+      },
+      {
+        name: "Snowfall",
+        href: "/docs/components/background-snowfall-animation",
+        isNew: true,
+      },
+      {
+        name: "Meteor",
+        href: "/docs/components/background-meteor-shower-animation",
+        isNew: true,
+      },
+      {
+        name: "Wavy Background",
+        href: "/docs/components/wavy-background",
+        isNew: true,
+      },
+      {
+        name: "Geometric Background",
+        href: "/docs/components/geometric-background",
+        isNew: true,
+      },
+      {
+        name: "Fluid Particles Background",
+        href: "/docs/components/fluid-particles-background",
         isNew: true,
       },
     ],

@@ -1,17 +1,14 @@
 export const metadata = {
   title: "Text Gradient Scroll - Bundui",
   description:
-    "Discover the allure of animated gradient text, a dynamic UI component that enhances user engagement with smooth color transitions. Built with Tailwind CSS.",
+    "Discover the allure of animated gradient text, a dynamic UI component that enhances user engagement with smooth color transitions. Built with Tailwind CSS and Motion.",
 };
 
 import TextGradientScrollExample from "@/components/examples/text-gradient-scroll";
-import ComponentCodePreview from "@/components/website/component-code-preview";
-import CodeBlock from "@/components/website/code-block";
-import CodeRenderer from "@/components/website/code-renderer";
 
 # Text Gradient Scroll
 
-The text gradient scroll component is designed to enhance user interaction by providing a visually dynamic effect as the user scrolls through the text. Unlike static text, this effect offers a more engaging visual experience with smooth color transitions that change as the text is scrolled. The animated gradient shifts add a modern and interactive touch to the user experience. This example was created using Tailwind CSS and Framer Motion.
+The text gradient scroll component is designed to enhance user interaction by providing a visually dynamic effect as the user scrolls through the text. Unlike static text, this effect offers a more engaging visual experience with smooth color transitions that change as the text is scrolled. The animated gradient shifts add a modern and interactive touch to the user experience..
 
 <ComponentCodePreview
   classNameComponentContainer="min-h-0 py-24 lg:px-32 px-8"
@@ -20,9 +17,18 @@ The text gradient scroll component is designed to enhance user interaction by pr
   iframeDemo="/demo/text-gradient-scroll"
 />
 
+## Installation
+
+<Tabs defaultValue="manuel" className="w-[400px]">
+    <TabsList>
+        <TabsTrigger value="manuel">Manuel</TabsTrigger>
+        <TabsTrigger disabled value="cli">CLI (Coming Soon)</TabsTrigger>
+    </TabsList>
+</Tabs>
+
 ### Install the following dependencies:
 
-<CodeRenderer code="npm i framer-motion clsx tailwind-merge" lang="bash" />
+<CodeRenderer code="npm i motion clsx tailwind-merge" lang="bash" />
 
 ### Add util file
 
@@ -30,11 +36,7 @@ The text gradient scroll component is designed to enhance user interaction by pr
 
 ### Copy and paste the following code into your project.
 
-<CodeBlock filePath="components/ui/text-gradient-scroll.tsx" />
-
-### Usage
-
-<CodeBlock filePath="components/examples/text-gradient-scroll.tsx" />
+<CodeBlock filePath="components/core/text-gradient-scroll.tsx" />
 
 ## API
 

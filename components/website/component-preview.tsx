@@ -1,8 +1,8 @@
 "use client";
+
+import React, { cloneElement, useState } from "react";
 import { cn } from "@/lib/utils";
 import { RotateCw } from "lucide-react";
-import { cloneElement, useState } from "react";
-import { ScrollArea } from "./scroll-area";
 
 type ComponentPreviewProps = {
   component: React.ReactElement;
@@ -24,8 +24,8 @@ export default function ComponentPreview({
   return (
     <div
       className={cn(
-        "flex  w-full overflow-auto2 items-center justify-center rounded-md",
-        className
+        "flex w-full items-center overflow-hidden justify-center rounded-md",
+        className,
       )}
     >
       {hasReTrigger && (
@@ -33,7 +33,7 @@ export default function ComponentPreview({
           className="absolute right-4 top-3 cursor-pointer"
           onClick={reTrigger}
         >
-          <RotateCw className="h-4 w-4 text-zinc-500" />
+          <RotateCw className="h-4 w-4 text-foreground" />
         </div>
       )}
       {hasReTrigger
