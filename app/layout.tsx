@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     title: "Bundui - Tailwind CSS, React, shadcn/ui and Motion components",
     description:
       "Beautifully designed Tailwind CSS, React, shadcn/ui and Motion components. Easy copy-paste. Customizable. Open Source. TypeScript compatible.",
-    url: process.env.BASE_URL,
     images: ["/open-graph-image.jpg"]
   }
 };
