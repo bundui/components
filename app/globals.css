@@ -78,22 +78,7 @@
     --secondary-foreground: oklch(0.205 0 0);
     --muted: oklch(0.97 0 0);
     --muted-foreground: oklch(0.556 0 0);
-
     --scrollbar-color: rgba(0, 0, 0, 0.3);
-
-    /* shiki theme noir */
-    --shiki-foreground: #ffffff;
-    --shiki-token-constant: #a7a7a7;
-    --shiki-token-string: #a7a7a7;
-    --shiki-token-comment: #666666;
-    --shiki-token-keyword: #a7a7a7;
-    --shiki-token-parameter: #a7a7a7;
-    --shiki-token-function: #ffffff;
-    --shiki-token-string-expression: #a7a7a7;
-    --shiki-token-punctuation: #a7a7a7;
-    --shiki-token-link: #a7a7a7;
-    --shiki-token-number: #ffffff;
-    --shiki-token-property: #a7a7a7;
     --radius: 0.625rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -121,14 +106,9 @@
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
 
-    --doc-sidebar-width: 260px;
-
     --color-fd-background: hsl(0, 0%, 100%);
     --color-fd-secondary: oklch(1 0 0);
     --color-fd-card: hsl(0, 0%, 100%);
-
-    --fd-sidebar-width: 400px;
-    --fd-toc-width: 400px;
 }
 
 :root.dark {
