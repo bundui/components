@@ -13,6 +13,7 @@ const inter = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`${process.env.BASE_URL}`),
   openGraph: {
     title: "Bundui - Tailwind CSS, React, shadcn/ui and Motion components",
     description:
