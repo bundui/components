@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 function CardExample({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative w-full overflow-hidden rounded-lg border p-4 shadow-[0px_0px_0px_1px_var(--color-zinc-100),0px_2px_2px_0px_var(--color-zinc-50)] dark:border dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none">
-      <div className="flex h-[400px] items-center justify-center">{children}</div>
+      <div className="flex h-[300px] items-center justify-center lg:h-[400px]">{children}</div>
     </div>
   );
 }
@@ -35,7 +35,7 @@ export default function Motion() {
     <>
       <Header />
       <div className="px-6 py-4 pb-20">
-        <section className="flex h-full flex-col items-center justify-center pt-20">
+        <section className="flex h-full flex-col items-center justify-center pt-10 lg:pt-20">
           <div className="flex w-full max-w-lg flex-col items-center justify-center text-center lg:max-w-2xl">
             <h1 className="text-foreground relative mb-4 text-3xl font-semibold lg:text-4xl">
               Great components to create more beautiful interfaces
@@ -45,7 +45,7 @@ export default function Motion() {
               copy-paste. Customizable. Open Source. TypeScript compatible.
             </p>
           </div>
-          <div className="flex items-center space-x-4 py-6">
+          <div className="flex flex-col items-center gap-4 py-6 lg:flex-row">
             <Button asChild>
               <Link href="/components">
                 Explore Components
@@ -63,7 +63,7 @@ export default function Motion() {
             </Button>
           </div>
         </section>
-        <section className="container mx-auto grid max-w-(--breakpoint-xl) grid-cols-2 gap-4 py-32 lg:gap-10">
+        <section className="container mx-auto grid max-w-(--breakpoint-xl) gap-4 py-32 lg:grid-cols-2 lg:gap-10">
           <CardExample>
             <TiltEffectExample />
           </CardExample>
