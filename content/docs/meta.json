@@ -1,0 +1,33 @@
+{
+  "title": "Bundui",
+  "root": true,
+  "pages": [
+    "---Getting started---",
+    "index",
+    "installation",
+    "---Base Components---",
+    "button",
+    "avatar",
+    "---Advanced Components---",
+    "tilt-effect",
+    "animated-gradient-text",
+    "text-morph-animation",
+    "animated-text",
+    "count-animation",
+    "floating-button",
+    "magnetic-button",
+    "marquee-effect",
+    "ripple-effect",
+    "scroll-progress-bar",
+    "text-gradient-scroll",
+    "---Backgrounds---",
+    "meteor-shower-animation-background",
+    "snowfall-animation-background",
+    "fireworks-background",
+    "floating-paths-background",
+    "fluid-particles-background",
+    "geometric-background",
+    "stars-background",
+    "wavy-background"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tilt-effect",
+  "type": "registry:block",
+  "title": "Tilt Effect",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/core/tilt-effect.tsx",
+      "content": "\"use client\";\n\nimport React, { useState, useRef, useEffect } from \"react\";\nimport { motion, useMotionValue, useSpring, useTransform } from \"motion/react\";\n\nexport type TiltEffectProps = {\n  children: React.ReactNode;\n  tiltFactor?: number;\n  perspective?: number;\n  transitionDuration?: number;\n};\n\nexport const TiltEffect: React.FC<TiltEffectProps> = ({\n  children,\n  tiltFactor = 12,\n  perspective = 1000,\n  transitionDuration = 0.5\n}) => {\n  const ref = useRef<HTMLDivElement>(null);\n  const [elementSize, setElementSize] = useState({ width: 0, height: 0 });\n\n  const x = useMotionValue(0);\n  const y = useMotionValue(0);\n\n  const springConfig = { damping: 30, stiffness: 400, mass: 0.5 };\n  const xSpring = useSpring(x, springConfig);\n  const ySpring = useSpring(y, springConfig);\n\n  const rotateX = useTransform(\n    ySpring,\n    [-elementSize.height / 2, elementSize.height / 2],\n    [tiltFactor, -tiltFactor]\n  );\n  const rotateY = useTransform(\n    xSpring,\n    [-elementSize.width / 2, elementSize.width / 2],\n    [-tiltFactor, tiltFactor]\n  );\n\n  useEffect(() => {\n    const updateSize = () => {\n      if (ref.current) {\n        setElementSize({\n          width: ref.current.offsetWidth,\n          height: ref.current.offsetHeight\n        });\n      }\n    };\n\n    updateSize();\n    window.addEventListener(\"resize\", updateSize);\n    return () => window.removeEventListener(\"resize\", updateSize);\n  }, []);\n\n  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {\n    if (!ref.current) return;\n    const rect = ref.current.getBoundingClientRect();\n    const mouseX = event.clientX - rect.left;\n    const mouseY = event.clientY - rect.top;\n    const centerX = elementSize.width / 2;\n    const centerY = elementSize.height / 2;\n    x.set(mouseX - centerX);\n    y.set(mouseY - centerY);\n  };\n\n  const handleMouseLeave = () => {\n    x.set(0);\n    y.set(0);\n  };\n\n  return (\n    <motion.div\n      ref={ref}\n      style={{\n        perspective,\n        transformStyle: \"preserve-3d\"\n      }}\n      onMouseMove={handleMouseMove}\n      onMouseLeave={handleMouseLeave}>\n      <motion.div\n        style={{\n          rotateX,\n          rotateY\n        }}\n        transition={{\n          duration: transitionDuration,\n          type: \"spring\",\n          ...springConfig\n        }}>\n        {children}\n      </motion.div>\n    </motion.div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/tilt-effect.tsx"
+    }
+  ]
+}

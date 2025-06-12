@@ -1,54 +1,51 @@
-import React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import CodePreview from "./code-preview";
-import CodeRenderer from "./code-renderer";
-import ComponentPreview from "./component-preview";
-import { extractCodeFromFilePath } from "@/lib/code";
+import React, { Suspense } from "react";
+import dynamic from "next/dynamic";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+import { CodeBlock } from "@/components/website/code-block";
+import { LoaderIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type ComponentCodePreview = {
-  component: React.ReactElement;
-  filePath: string;
-  hasReTrigger?: boolean;
-  classNameComponentContainer?: string;
-  iframeDemo?: string;
+  name: string;
+  contentClassName?: string;
+  iframe: boolean;
 };
 
 export default function ComponentCodePreview({
-  component,
-  filePath,
-  hasReTrigger,
-  classNameComponentContainer,
-  iframeDemo,
+  name,
+  contentClassName,
+  iframe = false
 }: ComponentCodePreview) {
-  const fileContent = extractCodeFromFilePath(`components/${filePath}.tsx`);
+  const Comp = !iframe ? dynamic(() => import(`@/components/examples/${name}.tsx`)) : null;
 
   return (
-    <div className="not-prose relative z-0 flex items-center justify-between pb-3">
-      <Tabs defaultValue="preview" className="relative mr-auto w-full">
-        <TabsList className="border-0">
-          <TabsTrigger value="preview">Preview</TabsTrigger>
-          <TabsTrigger value="code">Code</TabsTrigger>
-        </TabsList>
-        <TabsContent
-          className="overflow-hidden border rounded-md"
-          value="preview"
-        >
-          {iframeDemo ? (
-            <iframe className="w-full h-[400px]" src={iframeDemo} />
+    <Tabs items={["Preview", "Code"]} className="*:border-b">
+      <Tab value="Preview" className="overflow-hidden rounded-tl-none rounded-tr-none p-0">
+        <div className="not-prose relative z-0 flex items-center justify-between">
+          {iframe ? (
+            <iframe className="h-[400px] w-full" src={`/demo/${name}`} />
           ) : (
-            <ComponentPreview
-              component={component}
-              hasReTrigger={hasReTrigger}
-              className={classNameComponentContainer}
-            />
+            <Suspense
+              fallback={
+                <div className="text-muted-foreground flex items-center text-sm">
+                  <LoaderIcon className="mr-2 size-4 animate-spin" />
+                  Loading...
+                </div>
+              }>
+              <div
+                className={cn(
+                  "flex min-h-0 w-full items-center justify-center overflow-hidden px-8 py-24 lg:px-32",
+                  contentClassName
+                )}>
+                {Comp && <Comp />}
+              </div>
+            </Suspense>
           )}
-        </TabsContent>
-        <TabsContent value="code">
-          <CodePreview code={fileContent}>
-            <CodeRenderer code={fileContent} lang="tsx" />
-          </CodePreview>
-        </TabsContent>
-      </Tabs>
-    </div>
+        </div>
+      </Tab>
+      <Tab value="Code" className="rounded-tl-none rounded-tr-none">
+        <CodeBlock filePath={`components/examples/${name}.tsx`} />
+      </Tab>
+    </Tabs>
   );
 }

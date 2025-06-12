@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ripple-effect",
+  "type": "registry:block",
+  "title": "Ripple Effect",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/core/ripple-effect.tsx",
+      "content": "\"use client\";\n\nimport React from \"react\";\nimport { motion, AnimatePresence } from \"motion/react\";\n\ninterface RippleProps {\n  children: React.ReactNode;\n  color?: string;\n  duration?: number;\n  className?: string;\n}\n\ninterface RipplePosition {\n  x: number;\n  y: number;\n  size: number;\n  id: number;\n}\n\nexport const RippleEffect = ({\n  children,\n  color = \"rgba(255, 255, 255, 0.7)\",\n  duration = 0.8,\n  className,\n}: RippleProps) => {\n  const [ripples, setRipples] = React.useState<RipplePosition[]>([]);\n  const containerRef = React.useRef<HTMLDivElement>(null);\n\n  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!containerRef.current) return;\n\n    const rect = containerRef.current.getBoundingClientRect();\n\n    const x = e.clientX - rect.left;\n    const y = e.clientY - rect.top;\n\n    const size = Math.max(rect.width, rect.height);\n\n    const newRipple: RipplePosition = {\n      x,\n      y,\n      size: size * 2,\n      id: Date.now(),\n    };\n\n    setRipples((prevRipples) => [...prevRipples, newRipple]);\n\n    setTimeout(() => {\n      setRipples((prevRipples) =>\n        prevRipples.filter((ripple) => ripple.id !== newRipple.id),\n      );\n    }, duration * 1000);\n  };\n\n  return (\n    <div\n      ref={containerRef}\n      className={`inline-flex relative overflow-hidden rounded-lg ${className}`}\n      onMouseDown={handleClick}\n    >\n      {children}\n      <AnimatePresence>\n        {ripples.map((ripple) => (\n          <motion.div\n            key={ripple.id}\n            initial={{\n              width: 0,\n              height: 0,\n              x: ripple.x,\n              y: ripple.y,\n              opacity: 0.5,\n              borderRadius: \"100%\",\n            }}\n            animate={{\n              width: ripple.size,\n              height: ripple.size,\n              x: ripple.x - ripple.size / 2,\n              y: ripple.y - ripple.size / 2,\n              opacity: 0,\n              borderRadius: \"100%\",\n            }}\n            exit={{ opacity: 0 }}\n            transition={{ duration, ease: \"easeOut\" }}\n            style={{\n              position: \"absolute\",\n              backgroundColor: color,\n              pointerEvents: \"none\",\n            }}\n          />\n        ))}\n      </AnimatePresence>\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/ripple-effect.tsx"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+---
+title: Wavy Background
+description: The Wavy Background component adds a dynamic, flowing wave effect to the background of your website or application.
+---
+
+<ComponentCodePreview name="backgrounds/wavy" contentClassName="p-0!"/>
+
+## Installation
+
+<ComponentInstallation name="backgrounds/wavy" deps={"npm install clsx tailwind-merge"}/>
+
+## Usage
+
+<CodeRenderer name="backgrounds/wavy"/>
+
+## Props
+
+<TypeTable
+    type={{
+        children: {
+            type: 'ReactNode',
+            required: true,
+            description: 'The content nested inside the component.',
+        },
+        className: {
+            type: 'string',
+            description: 'Optional Tailwind/CSS classes for custom styling on the outer container.',
+        },
+    }}
+/>
+
+
+

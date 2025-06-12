@@ -1,18 +1,17 @@
 import { cn } from "@/lib/utils";
 
-type Props = {
+export type AnimatedGradientTextProps = {
   text: string;
   className?: string;
 };
 
-export default function AnimatedGradientText({ text, className }: Props) {
+export default function AnimatedGradientText({ text, className }: AnimatedGradientTextProps) {
   return (
     <span
       className={cn(
-        "inline-flex animate-text-gradient bg-linear-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] text-transparent bg-clip-text",
-        className,
-      )}
-    >
+        "animate-text-gradient inline-flex bg-linear-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text text-transparent",
+        className
+      )}>
       {text}
     </span>
   );

@@ -1,0 +1,77 @@
+---
+title: Animated Text
+description: Bring text to life by adding animations to letters or words.
+---
+
+<ComponentCodePreview name="animated-text/text"/>
+
+## Installation
+
+<ComponentInstallation name="animated-text" deps={"npm install motion"}/>
+
+## Usage
+
+<CodeRenderer name="animated-text/text"/>
+
+## Examples
+
+### Word
+
+<ComponentCodePreview name="animated-text/word"/>
+
+## Props
+
+<TypeTable
+  type={{
+    text: {
+      type: 'string',
+      required: true,
+      description: 'The text content to animate using either letters or words.',
+    },
+    className: {
+      type: 'string',
+      description: 'Optional CSS classes for styling the outer container.',
+    },
+    animationType: {
+      type: '"letters" | "words"',
+      default: '"letters"',
+      description: 'Determines whether to animate each letter or each word.',
+    },
+    duration: {
+      type: 'number',
+      default: '0.6',
+      description: 'The duration of the animation for each letter/word (in seconds).',
+    },
+    delay: {
+      type: 'number',
+      default: '0',
+      description: 'Initial delay before starting the animation (in seconds).',
+    },
+    staggerDelay: {
+      type: 'number',
+      default: '0.05',
+      description: 'Delay between each letter/word animation.',
+    },
+    initialY: {
+      type: 'number',
+      default: '10',
+      description: 'Initial vertical offset before animation begins.',
+    },
+    initialOpacity: {
+      type: 'number',
+      default: '0',
+      description: 'Initial opacity of each element before animation.',
+    },
+    animateY: {
+      type: 'number',
+      default: '0',
+      description: 'Final vertical offset after animation completes.',
+    },
+    animateOpacity: {
+      type: 'number',
+      default: '1',
+      description: 'Final opacity of each element after animation.',
+    },
+  }}
+/>
+

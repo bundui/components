@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-button",
+  "type": "registry:block",
+  "title": "Magnetic Button",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/core/magnetic-button.tsx",
+      "content": "\"use client\";\n\nimport React, { useState, useEffect, useRef } from \"react\";\nimport { motion, useMotionValue, useSpring } from \"motion/react\";\n\nconst SPRING_CONFIG = { damping: 100, stiffness: 400 };\n\ntype MagneticButtonType = {\n  children: React.ReactNode;\n  distance?: number;\n};\n\nfunction MagneticButton({ children, distance = 0.6 }: MagneticButtonType) {\n  const [isHovered, setIsHovered] = useState(false);\n  const ref = useRef<HTMLDivElement>(null);\n\n  const x = useMotionValue(0);\n  const y = useMotionValue(0);\n\n  const springX = useSpring(x, SPRING_CONFIG);\n  const springY = useSpring(y, SPRING_CONFIG);\n\n  useEffect(() => {\n    const calculateDistance = (e: MouseEvent) => {\n      if (ref.current) {\n        const rect = ref.current.getBoundingClientRect();\n        const centerX = rect.left + rect.width / 2;\n        const centerY = rect.top + rect.height / 2;\n        const distanceX = e.clientX - centerX;\n        const distanceY = e.clientY - centerY;\n\n        if (isHovered) {\n          x.set(distanceX * distance);\n          y.set(distanceY * distance);\n        } else {\n          x.set(0);\n          y.set(0);\n        }\n      }\n    };\n\n    document.addEventListener(\"mousemove\", calculateDistance);\n\n    return () => {\n      document.removeEventListener(\"mousemove\", calculateDistance);\n    };\n  }, [ref, isHovered]);\n\n  return (\n    <motion.div\n      ref={ref}\n      onMouseEnter={() => setIsHovered(true)}\n      onMouseLeave={() => setIsHovered(false)}\n      style={{\n        x: springX,\n        y: springY,\n      }}\n    >\n      {children}\n    </motion.div>\n  );\n}\n\nexport default MagneticButton;\n",
+      "type": "registry:component",
+      "target": "components/magnetic-button.tsx"
+    }
+  ]
+}

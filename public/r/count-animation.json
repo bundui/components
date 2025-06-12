@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "count-animation",
+  "type": "registry:block",
+  "title": "Count Animation",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge",
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/core/count-animation.tsx",
+      "content": "\"use client\";\n\nimport React from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport {\n  useMotionValue,\n  useTransform,\n  animate,\n  useMotionValueEvent,\n} from \"motion/react\";\n\ntype Props = {\n  number: number;\n  className?: string;\n  prefix?: string;\n  suffix?: string;\n};\n\nexport default function CountAnimation({\n  number,\n  className,\n  prefix,\n  suffix,\n}: Props) {\n  const count = useMotionValue(0);\n  const rounded = useTransform(count, Math.round);\n  const [current, setCurrent] = React.useState(0);\n\n  React.useEffect(() => {\n    const animation = animate(count, number, { duration: 2 });\n    return animation.stop;\n  }, [count, number]);\n\n  useMotionValueEvent(rounded, \"change\", (latest) => {\n    setCurrent(latest);\n  });\n\n  return (\n    <span className={cn(className)}>\n      {prefix}\n      {current}\n      {suffix}\n    </span>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/count-animation.tsx"
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}

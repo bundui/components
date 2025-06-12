@@ -3,11 +3,9 @@ import WavyBackground from "@/components/core/backgrounds/wavy";
 
 export default function WavyBackgroundExample() {
   return (
-    <WavyBackground className="aspect-16/9 flex items-center justify-center">
-      <div className="text-center space-y-4 lg:space-y-6 z-10">
-        <div className="text-2xl lg:text-4xl text-white/80">
-          Bundui Components
-        </div>
+    <WavyBackground className="flex aspect-16/9 items-center justify-center">
+      <div className="z-10 space-y-4 text-center lg:space-y-6">
+        <h4 className="text-2xl font-semibold text-white/80 lg:text-3xl">Bundui Components</h4>
         <Button>Discover Excellence</Button>
       </div>
     </WavyBackground>

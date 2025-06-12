@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "floating-button",
+  "type": "registry:block",
+  "title": "Floating Button",
+  "dependencies": [
+    "motion",
+    "usehooks-ts"
+  ],
+  "files": [
+    {
+      "path": "components/core/floating-button.tsx",
+      "content": "\"use client\";\n\nimport React, { ReactNode } from \"react\";\nimport { AnimatePresence, motion } from \"motion/react\";\nimport { useOnClickOutside } from \"usehooks-ts\";\n\ntype FloatingButtonProps = {\n  className?: string;\n  children: ReactNode;\n  triggerContent: ReactNode;\n};\n\ntype FloatingButtonItemProps = {\n  children: ReactNode;\n};\n\nconst list = {\n  visible: {\n    opacity: 1,\n    transition: {\n      staggerChildren: 0.1,\n      staggerDirection: -1,\n    },\n  },\n  hidden: {\n    opacity: 0,\n    transition: {\n      when: \"afterChildren\",\n      staggerChildren: 0.1,\n    },\n  },\n};\n\nconst item = {\n  visible: { opacity: 1, y: 0 },\n  hidden: { opacity: 0, y: 5 },\n};\n\nconst btn = {\n  visible: { rotate: \"45deg\" },\n  hidden: { rotate: 0 },\n};\n\nfunction FloatingButton({ children, triggerContent }: FloatingButtonProps) {\n  const ref = React.useRef<HTMLDivElement | null>(null);\n  const [isOpen, setIsOpen] = React.useState(false);\n\n  useOnClickOutside(ref as React.RefObject<HTMLDivElement>, () =>\n    setIsOpen(false),\n  );\n\n  return (\n    <div className=\"flex flex-col items-center relative\">\n      <AnimatePresence>\n        <motion.ul\n          key=\"list\"\n          className=\"flex flex-col items-center absolute bottom-14 gap-2\"\n          initial=\"hidden\"\n          animate={isOpen ? \"visible\" : \"hidden\"}\n          variants={list}\n        >\n          {children}\n        </motion.ul>\n        <motion.div\n          key=\"button\"\n          variants={btn}\n          animate={isOpen ? \"visible\" : \"hidden\"}\n          ref={ref}\n          onClick={() => setIsOpen(!isOpen)}\n          className=\"cursor-pointer\"\n        >\n          {triggerContent}\n        </motion.div>\n      </AnimatePresence>\n    </div>\n  );\n}\n\nfunction FloatingButtonItem({ children }: FloatingButtonItemProps) {\n  return <motion.li variants={item}>{children}</motion.li>;\n}\n\nexport { FloatingButton, FloatingButtonItem };\n",
+      "type": "registry:component",
+      "target": "components/floating-button.tsx"
+    }
+  ]
+}

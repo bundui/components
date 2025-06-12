@@ -1,7 +1,5 @@
-import fs from 'fs';
+import fs from "fs";
 
 export const extractCodeFromFilePath = (filePath: string) => {
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
-
-  return fileContent;
+  return fs.readFileSync(filePath, "utf-8");
 };

@@ -1,0 +1,33 @@
+---
+title: Magnetic Button
+description: A Magnetic Button is a UI component designed to enhance user interaction. When a user's cursor or touch input approaches the button, it subtly moves towards the user, simulating the effect of magnetic attraction.
+---
+
+<ComponentCodePreview name="magnetic-button"/>
+
+## Installation
+
+<ComponentInstallation name="magnetic-button" deps={"npm install motion"}/>
+
+## Usage
+
+<CodeRenderer name="magnetic-button"/>
+
+## Props
+
+<TypeTable
+    type={{
+        children: {
+            type: 'ReactNode',
+            required: true,
+            description: 'The content to be rendered inside the magnetic button',
+        },
+        distance: {
+            type: 'number',
+            default: 0.6,
+            description:
+                'The distance factor that determines how much the button moves when hovered',
+        },
+    }}
+/>
+

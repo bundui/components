@@ -1,7 +1,3 @@
-import {
-  FloatingButton,
-  FloatingButtonItem,
-} from "@/components/core/floating-button";
 import { cn } from "@/lib/utils";
 import {
   DribbbleIcon,
@@ -9,6 +5,12 @@ import {
   LinkedinIcon,
   PlusIcon,
 } from "lucide-react";
+
+import {
+  FloatingButton,
+  FloatingButtonItem,
+} from "@/components/core/floating-button";
+import {Button} from "@/components/ui/button";
 
 export default function FloatingButtonExample() {
   const items = [
@@ -32,21 +34,16 @@ export default function FloatingButtonExample() {
   return (
     <FloatingButton
       triggerContent={
-        <button className="flex items-center justify-center h-12 w-12 rounded-full bg-black dark:bg-slate-800 text-white/80 z-10">
-          <PlusIcon />
-        </button>
+        <Button size="icon" className="size-12 rounded-full">
+          <PlusIcon className="size-5" />
+        </Button>
       }
     >
       {items.map((item) => (
         <FloatingButtonItem key={item.id}>
-          <button
-            className={cn(
-              "h-12 w-12 rounded-full flex items-center justify-center text-white/80",
-              item.bgColor,
-            )}
-          >
+          <Button size="icon" className={cn("size-12 rounded-full", item.bgColor)}>
             {item.icon}
-          </button>
+          </Button>
         </FloatingButtonItem>
       ))}
     </FloatingButton>

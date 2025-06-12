@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "geometric",
+  "type": "registry:block",
+  "title": "Geometric",
+  "dependencies": [
+    "motion",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "components/core/backgrounds/geometric.tsx",
+      "content": "\"use client\";\n\nimport React from \"react\";\nimport { motion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nfunction ElegantShape({\n  className,\n  delay = 0,\n  width = 400,\n  height = 100,\n  rotate = 0,\n  gradient = \"from-white/[0.08]\",\n}: {\n  className?: string;\n  delay?: number;\n  width?: number;\n  height?: number;\n  rotate?: number;\n  gradient?: string;\n}) {\n  return (\n    <motion.div\n      initial={{\n        opacity: 0,\n        y: -150,\n        rotate: rotate - 15,\n      }}\n      animate={{\n        opacity: 1,\n        y: 0,\n        rotate: rotate,\n      }}\n      transition={{\n        duration: 2.4,\n        delay,\n        ease: [0.23, 0.86, 0.39, 0.96],\n        opacity: { duration: 1.2 },\n      }}\n      className={cn(\"absolute\", className)}\n    >\n      <motion.div\n        animate={{\n          y: [0, 15, 0],\n        }}\n        transition={{\n          duration: 12,\n          repeat: Number.POSITIVE_INFINITY,\n          ease: \"easeInOut\",\n        }}\n        style={{\n          width,\n          height,\n        }}\n        className=\"relative\"\n      >\n        <div\n          className={cn(\n            \"absolute inset-0 rounded-full\",\n            \"bg-gradient-to-r to-transparent\",\n            gradient,\n            \"backdrop-blur-[2px] border-2 border-white/[0.15]\",\n            \"shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]\",\n            \"after:absolute after:inset-0 after:rounded-full\",\n            \"after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]\",\n          )}\n        />\n      </motion.div>\n    </motion.div>\n  );\n}\n\nexport default function GeometricBackground({\n  children,\n  className,\n}: {\n  children: React.ReactNode;\n  className?: string;\n}) {\n  return (\n    <div\n      className={cn(\"relative w-full overflow-hidden bg-[#030303]\", className)}\n    >\n      <div className=\"absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl\" />\n\n      <div className=\"absolute inset-0 overflow-hidden\">\n        <ElegantShape\n          delay={0.3}\n          width={600}\n          height={140}\n          rotate={12}\n          gradient=\"from-indigo-500/[0.15]\"\n          className=\"left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]\"\n        />\n\n        <ElegantShape\n          delay={0.5}\n          width={500}\n          height={120}\n          rotate={-15}\n          gradient=\"from-rose-500/[0.15]\"\n          className=\"right-[-5%] md:right-[0%] top-[70%] md:top-[75%]\"\n        />\n\n        <ElegantShape\n          delay={0.4}\n          width={300}\n          height={80}\n          rotate={-8}\n          gradient=\"from-violet-500/[0.15]\"\n          className=\"left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]\"\n        />\n\n        <ElegantShape\n          delay={0.6}\n          width={200}\n          height={60}\n          rotate={20}\n          gradient=\"from-amber-500/[0.15]\"\n          className=\"right-[15%] md:right-[20%] top-[10%] md:top-[15%]\"\n        />\n\n        <ElegantShape\n          delay={0.7}\n          width={150}\n          height={40}\n          rotate={-25}\n          gradient=\"from-cyan-500/[0.15]\"\n          className=\"left-[20%] md:left-[25%] top-[5%] md:top-[10%]\"\n        />\n      </div>\n\n      {children}\n      <div className=\"absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none\" />\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/geometric.tsx"
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}

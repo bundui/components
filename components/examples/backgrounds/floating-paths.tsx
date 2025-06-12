@@ -3,14 +3,11 @@ import { Button } from "@/components/ui/button";
 
 export default function FloatingPathsBackgroundExample() {
   return (
-    <FloatingPathsBackground
-      className="aspect-16/9 flex items-center justify-center"
-      position={-1}
-    >
-      <div className="text-center space-y-4 lg:space-y-6 z-10">
-        <div className="text-2xl lg:text-4xl text-black/80 dark:text-white/80">
+    <FloatingPathsBackground className="flex aspect-16/9 items-center justify-center" position={-1}>
+      <div className="z-10 space-y-4 text-center lg:space-y-6">
+        <h4 className="text-2xl font-semibold text-black/80 lg:text-3xl dark:text-white/80">
           Bundui Components
-        </div>
+        </h4>
         <Button>Discover Excellence</Button>
       </div>
     </FloatingPathsBackground>

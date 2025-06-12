@@ -1,0 +1,42 @@
+---
+title: Tilt Effect
+description: Tilt Effect is an interactive component that creates a perspective effect by making buttons, cards or images respond to mouse movements.
+---
+
+<ComponentCodePreview name="tilt-effect"/>
+
+## Installation
+
+<ComponentInstallation name="tilt-effect" deps={"npm install motion"}/>
+
+## Usage
+
+<CodeRenderer name="tilt-effect"/>
+
+## Props
+
+<TypeTable
+    type={{
+        children: {
+            type: 'ReactNode',
+            required: true,
+            description: 'The content to be wrapped with the tilt effect',
+        },
+        tiltFactor: {
+            type: 'number',
+            default: 12,
+            description:
+                'The intensity of the tilt effect (higher value = more tilt)',
+        },
+        perspective: {
+            type: 'number',
+            default: 1000,
+            description: 'The perspective depth to simulate a 3D effect',
+        },
+        transitionDuration: {
+            type: 'number',
+            default: 0.5,
+            description: 'The duration of the transition when tilting',
+        },
+    }}
+/>

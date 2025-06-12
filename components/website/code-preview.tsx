@@ -1,49 +1,21 @@
-"use client";
+import * as Base from "fumadocs-ui/components/codeblock";
+import { highlight } from "fumadocs-core/highlight";
+import { type HTMLAttributes } from "react";
 
-import { Check, Copy } from "lucide-react";
-import React, { useState } from "react";
-
-type CodePreviewProps = {
+export async function CodePreview({
+  code,
+  lang,
+  ...rest
+}: HTMLAttributes<HTMLElement> & {
   code: string;
-  children: React.ReactNode;
-};
+  lang: string;
+}) {
+  const rendered = await highlight(code, {
+    lang,
+    components: {
+      pre: (props) => <Base.Pre {...props} />,
+    },
+  });
 
-export default function CodePreview({ code, children }: CodePreviewProps) {
-  const [hasCheckIcon, setHasCheckIcon] = useState(false);
-
-  const onCopy = () => {
-    navigator.clipboard.writeText(code);
-    setHasCheckIcon(true);
-
-    setTimeout(() => {
-      setHasCheckIcon(false);
-    }, 1000);
-  };
-
-  return (
-    <div className="relative">
-      <div
-        className="absolute right-4 top-4 cursor-pointer bg-transparent p-2"
-        onClick={onCopy}
-      >
-        <div
-          className={`absolute inset-0 transform transition-all duration-300 ${
-            hasCheckIcon ? "scale-0 opacity-0" : "scale-100 opacity-100"
-          }`}
-        >
-          <Copy className="h-4 w-4 text-zinc-50" />
-        </div>
-        <div
-          className={`absolute inset-0 transform transition-all duration-300 ${
-            hasCheckIcon ? "scale-100 opacity-100" : "scale-0 opacity-0"
-          }`}
-        >
-          <Check className="h-4 w-4 text-zinc-50" />
-        </div>
-      </div>
-      <div className="max-h-[650px] overflow-auto overflow-x-auto rounded-md bg-zinc-900 p-4 text-sm">
-        {children}
-      </div>
-    </div>
-  );
+  return <Base.CodeBlock {...rest}>{rendered}</Base.CodeBlock>;
 }

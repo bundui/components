@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "floating-paths",
+  "type": "registry:block",
+  "title": "Floating Paths",
+  "dependencies": [
+    "motion",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "components/core/backgrounds/floating-paths.tsx",
+      "content": "\"use client\";\n\nimport React from \"react\";\nimport { motion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport function FloatingPathsBackground({\n  position,\n  children,\n  className,\n}: {\n  position: number;\n  className?: string;\n  children: React.ReactNode;\n}) {\n  const paths = Array.from({ length: 36 }, (_, i) => ({\n    id: i,\n    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${\n      380 - i * 5 * position\n    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${\n      152 - i * 5 * position\n    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${\n      684 - i * 5 * position\n    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,\n    color: `rgba(15,23,42,${0.1 + i * 0.03})`,\n    width: 0.5 + i * 0.03,\n  }));\n\n  return (\n    <div className={cn(\"w-full relative\", className)}>\n      <div className=\"absolute inset-0 pointer-events-none\">\n        <svg\n          className=\"w-full h-full text-slate-950 dark:text-white\"\n          viewBox=\"0 0 696 316\"\n          fill=\"none\"\n        >\n          {paths.map((path) => (\n            <motion.path\n              key={path.id}\n              d={path.d}\n              stroke=\"currentColor\"\n              strokeWidth={path.width}\n              strokeOpacity={0.1 + path.id * 0.03}\n              initial={{ pathLength: 0.3, opacity: 0.6 }}\n              animate={{\n                pathLength: 1,\n                opacity: [0.3, 0.6, 0.3],\n                pathOffset: [0, 1, 0],\n              }}\n              transition={{\n                duration: 20 + Math.random() * 10,\n                repeat: Number.POSITIVE_INFINITY,\n                ease: \"linear\",\n              }}\n            />\n          ))}\n        </svg>\n      </div>\n      {children}\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/floating-paths.tsx"
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+---
+title: Text Gradient Scroll
+description: Discover the allure of animated gradient text, a dynamic UI component that enhances user engagement with smooth color transitions. Built with Tailwind CSS and Motion.
+---
+
+<ComponentCodePreview name="text-gradient-scroll" iframe={true}/>
+
+## Installation
+
+<ComponentInstallation name="scroll-progress-bar" deps={"npm install motion clsx tailwind-merge"}/>
+
+## Usage
+
+<CodeRenderer name="text-gradient-scroll"/>
+
+## Props
+
+<TypeTable
+    type={{
+        text: {
+            type: 'string',
+            required: true,
+            description: 'The text content to display with gradient effect.',
+        },
+        className: {
+            type: 'string',
+            description: 'Optional CSS class for styling the component.',
+        },
+        type: {
+            type: '"letter" | "word"',
+            default: '"letter"',
+            description:
+                'Determines the type of animation, whether it applies to letters or words.',
+        },
+        textOpacity: {
+            type: '"none" | "soft" | "medium"',
+            default: '"soft"',
+            description:
+                'Sets the opacity level for the text: none, soft, medium, or strong.',
+        },
+    }}
+/>
+

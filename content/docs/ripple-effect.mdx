@@ -1,0 +1,52 @@
+---
+title: Ripple Effect
+description: Ripple effect is a modern animation component designed to enrich user interaction by creating a dynamic ripple effect when clicking on buttons or any HTML element. Built with Tailwind CSS and Motion.
+---
+
+<ComponentCodePreview name="ripple-effect/button"/>
+
+## Installation
+
+<ComponentInstallation name="ripple-effect" deps={"npm install motion"}/>
+
+## Usage
+
+<CodeRenderer name="ripple-effect/button"/>
+
+## Examples
+
+### Colored
+
+<ComponentCodePreview name="ripple-effect/colored"/>
+
+### Image
+
+<ComponentCodePreview name="ripple-effect/image"/>
+
+## Props
+
+<TypeTable
+    type={{
+        children: {
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The content to be wrapped with the ripple effect',
+        },
+        color: {
+            type: 'string',
+            default: '"rgba(255, 255, 255, 0.7)"',
+            description: 'The color of the ripple effect',
+        },
+        duration: {
+            type: 'number',
+            default: 0.8,
+            description:
+                'The duration (in seconds) for which the ripple effect will expand and fade',
+        },
+        className: {
+            type: 'string',
+            description: 'Custom className for the container of the ripple effect',
+        },
+    }}
+/>
+

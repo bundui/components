@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-progress-bar",
+  "type": "registry:block",
+  "title": "Scroll Progress Bar",
+  "dependencies": [
+    "motion",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "components/core/scroll-progress-bar.tsx",
+      "content": "\"use client\";\n\nimport React from \"react\";\nimport {\n  motion,\n  useMotionValueEvent,\n  useScroll,\n  useTransform,\n} from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface ScrollProgressBarType {\n  type?: \"circle\" | \"bar\";\n  position?: \"top-right\" | \"bottom-right\" | \"top-left\" | \"bottom-left\";\n  color?: string;\n  strokeSize?: number;\n  showPercentage?: boolean;\n}\n\nexport default function ScrollProgressBar({\n  type = \"circle\",\n  position = \"bottom-right\",\n  color = \"var(--primary)\",\n  strokeSize = 2,\n  showPercentage = false,\n}: ScrollProgressBarType) {\n  const { scrollYProgress } = useScroll();\n\n  const scrollPercentage = useTransform(scrollYProgress, [0, 1], [0, 100]);\n\n  const [percentage, setPercentage] = React.useState(0);\n\n  useMotionValueEvent(scrollPercentage, \"change\", (latest) => {\n    setPercentage(Math.round(latest));\n  });\n\n  if (type === \"bar\") {\n    return (\n      <div\n        className=\"fixed start-0 end-0 top-0 pointer-events-none\"\n        style={{ height: `${strokeSize + 2}px` }}\n      >\n        <span\n          className=\"bg-primary h-full w-full block\"\n          style={{\n            backgroundColor: color,\n            width: `${percentage}%`,\n          }}\n        ></span>\n      </div>\n    );\n  }\n\n  return (\n    <div\n      className={cn(\"fixed flex items-center justify-center\", {\n        \"top-0 end-0\": position === \"top-right\",\n        \"bottom-0 end-0\": position === \"bottom-right\",\n        \"top-0 start-0\": position === \"top-left\",\n        \"bottom-0 start-0\": position === \"bottom-left\",\n      })}\n    >\n      {percentage > 0 && (\n        <>\n          <svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\">\n            <circle\n              cx=\"50\"\n              cy=\"50\"\n              r=\"30\"\n              fill=\"none\"\n              strokeWidth={strokeSize}\n            />\n            <motion.circle\n              cx=\"50\"\n              cy=\"50\"\n              r=\"30\"\n              pathLength=\"1\"\n              stroke={color}\n              fill=\"none\"\n              strokeDashoffset=\"0\"\n              strokeWidth={strokeSize}\n              style={{ pathLength: scrollYProgress }}\n            />\n          </svg>\n          {showPercentage && (\n            <span className=\"text-sm absolute ml-2\">{percentage}%</span>\n          )}\n        </>\n      )}\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/scroll-progress-bar.tsx"
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}

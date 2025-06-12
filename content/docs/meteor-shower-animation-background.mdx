@@ -1,0 +1,31 @@
+---
+title: Meteor Shower Animation Background
+description: Beautiful meteor shower animation background built with React and Canvas. Add dynamic falling meteors to your site with smooth, customizable visuals and minimal performance impact.
+---
+
+<ComponentCodePreview name="backgrounds/meteor-shower" contentClassName="p-0!"/>
+
+## Installation
+
+<ComponentInstallation name="backgrounds/meteor-shower" deps={"npm install clsx tailwind-merge next-themes"}/>
+
+## Usage
+
+<CodeRenderer name="backgrounds/meteor-shower"/>
+
+## Props
+
+<TypeTable
+    type={{
+        children: {
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The content to be displayed on top of the meteor shower animation.',
+        },
+        className: {
+            type: 'string',
+            description: 'Optional Tailwind/CSS classes for custom styling on the outer container.',
+        },
+    }}
+/>
+

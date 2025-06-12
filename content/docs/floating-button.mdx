@@ -1,0 +1,49 @@
+---
+title: Floating Button
+description: A floating button is a common UI component used in user interfaces. It typically appears as a button "floating" over other content, often positioned in a corner of the screen. This button allows users to quickly perform a key action.
+---
+
+<ComponentCodePreview name="floating-button"/>
+
+## Installation
+
+<ComponentInstallation name="floating-button" deps={"npm install motion usehooks-ts"}/>
+
+## Usage
+
+<CodeRenderer name="floating-button"/>
+
+## Props
+
+### FloatingButton
+
+<TypeTable
+    type={{
+        children: {
+            type: 'ReactNode',
+            required: true,
+            description: 'The content inside the floating button',
+        },
+        triggerContent: {
+            type: 'ReactNode',
+            description:
+                'The content that triggers the opening/closing of the button',
+        },
+        className: {
+            type: 'string',
+            description: 'Optional CSS class for styling',
+        },
+    }}
+/>
+
+### FloatingButtonItem
+
+<TypeTable
+    type={{
+        children: {
+            type: 'ReactNode',
+            required: true,
+            description: 'The content inside a floating button item',
+        },
+    }}
+/>

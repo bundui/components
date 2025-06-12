@@ -1,29 +1,28 @@
-import { NAVIGATION } from "@/app/docs/routes";
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const url = `${process.env.BASE_URL}`;
+import { source } from "@/lib/source";
 
-  const docNavigationItems: MetadataRoute.Sitemap = [];
+export const dynamic = "force-dynamic";
 
-  NAVIGATION.forEach(({ children }) => {
-    children.forEach((item) => {
-      docNavigationItems.push({
-        url: `${process.env.BASE_URL}${item.href}`,
-        lastModified: new Date(),
-        changeFrequency: "daily",
-        priority: 1,
-      });
-    });
-  });
+export const revalidate = false;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const url = (path: string): string => new URL(path, process.env.BASE_URL).toString();
 
   return [
     {
-      url: url,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 1,
+      url: `${process.env.BASE_URL}`,
+      changeFrequency: "monthly",
+      priority: 1
     },
-    ...docNavigationItems,
+    ...(await Promise.all(
+      source.getPages().map(async (page) => {
+        return {
+          url: url(page.url),
+          changeFrequency: "weekly",
+          priority: 0.5
+        } as MetadataRoute.Sitemap[number];
+      })
+    ))
   ];
 }

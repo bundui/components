@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-gradient-text",
+  "type": "registry:block",
+  "title": "Animated Gradient Text",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "components/core/animated-gradient-text.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\nexport type AnimatedGradientTextProps = {\n  text: string;\n  className?: string;\n};\n\nexport default function AnimatedGradientText({ text, className }: AnimatedGradientTextProps) {\n  return (\n    <span\n      className={cn(\n        \"animate-text-gradient inline-flex bg-linear-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text text-transparent\",\n        className\n      )}>\n      {text}\n    </span>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/animated-gradient-text.tsx"
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}

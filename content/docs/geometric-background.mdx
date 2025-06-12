@@ -1,0 +1,31 @@
+---
+title: Geometric Background
+description: Transform your website with a dynamic geometric background animation.
+---
+
+<ComponentCodePreview name="backgrounds/geometric" contentClassName="p-0!"/>
+
+## Installation
+
+<ComponentInstallation name="backgrounds/geometric" deps={"npm install motion clsx tailwind-merge"}/>
+
+## Usage
+
+<CodeRenderer name="backgrounds/geometric"/>
+
+## Props
+
+<TypeTable
+    type={{
+        children: {
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The content to be rendered inside the background.',
+        },
+        className: {
+            type: 'string',
+            description: 'Optional Tailwind/CSS classes for custom styling on the outer container.',
+        },
+    }}
+/>
+

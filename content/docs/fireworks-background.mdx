@@ -1,0 +1,31 @@
+---
+title: Fireworks Background
+description: Add animated fireworks to your site background with this festive component. Perfect for celebrations. Built with Tailwind CSS and Framer Motion.
+---
+
+<ComponentCodePreview name="backgrounds/fireworks" contentClassName="p-0!"/>
+
+## Installation
+
+<ComponentInstallation name="backgrounds/fireworks" deps={"npm install clsx tailwind-merge"}/>
+
+## Usage
+
+<CodeRenderer name="backgrounds/fireworks"/>
+
+## Props
+
+<TypeTable
+    type={{
+        children: {
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The content to be wrapped inside the component. Typically your page content.',
+        },
+        className: {
+            type: 'string',
+            description: 'Optional Tailwind/CSS classes for custom styling on the outer container.',
+        },
+    }}
+/>
+

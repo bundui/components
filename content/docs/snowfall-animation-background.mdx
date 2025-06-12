@@ -1,0 +1,63 @@
+---
+title: Snowfall Animation Background
+description: Enhance your website with the peaceful atmosphere of the Snowfall Animation Background. Create a captivating design with gently falling snowflakes for a serene and wintery experience.
+---
+
+<ComponentCodePreview name="backgrounds/snowfall" contentClassName="p-0!"/>
+
+## Installation
+
+<ComponentInstallation name="backgrounds/snowfall" deps={"npm install clsx tailwind-merge next-themes"}/>
+
+## Usage
+
+<CodeRenderer name="backgrounds/snowfall"/>
+
+## Props
+
+<TypeTable
+    type={{
+        children: {
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The content to be displayed over the snowfall background.',
+        },
+        count: {
+            type: 'number',
+            default: 100,
+            description:
+                'The number of snowflakes to be displayed. A larger number can make the snowfall more dense.',
+        },
+        minRadius: {
+            type: 'number',
+            default: 1,
+            description: 'The minimum radius of each snowflake.',
+        },
+        maxRadius: {
+            type: 'number',
+            default: 4,
+            description: 'The maximum radius of each snowflake.',
+        },
+        minSpeed: {
+            type: 'number',
+            default: 0.5,
+            description: 'The minimum falling speed of the snowflakes.',
+        },
+        maxSpeed: {
+            type: 'number',
+            default: 2,
+            description: 'The maximum falling speed of the snowflakes.',
+        },
+        wind: {
+            type: 'number',
+            default: 0.5,
+            description: 'The wind effect that moves the snowflakes horizontally.',
+        },
+        className: {
+            type: 'string',
+            description:
+                'Optional Tailwind/CSS classes for custom styling on the outer container.',
+        },
+    }}
+/>
+

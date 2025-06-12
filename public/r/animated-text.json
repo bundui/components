@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-text",
+  "type": "registry:block",
+  "title": "Animated Text",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/core/animated-text.tsx",
+      "content": "\"use client\";\n\nimport { motion } from \"motion/react\";\n\ninterface AnimatedTextProps {\n  text: string;\n  className?: string;\n  animationType?: \"letters\" | \"words\";\n  duration?: number;\n  delay?: number;\n  staggerDelay?: number;\n  initialY?: number;\n  initialOpacity?: number;\n  animateY?: number;\n  animateOpacity?: number;\n}\n\nexport default function AnimatedText({\n  text,\n  className = \"text-4xl font-bold\",\n  animationType = \"letters\",\n  duration = 0.6,\n  delay = 0,\n  staggerDelay = 0.05,\n  initialY = 10,\n  initialOpacity = 0,\n  animateY = 0,\n  animateOpacity = 1\n}: AnimatedTextProps) {\n  const containerVariants = {\n    hidden: { opacity: 0 },\n    visible: {\n      opacity: 1,\n      transition: {\n        staggerChildren: staggerDelay,\n        delayChildren: delay\n      }\n    }\n  };\n\n  const itemVariants = {\n    hidden: {\n      y: initialY,\n      opacity: initialOpacity\n    },\n    visible: {\n      y: animateY,\n      opacity: animateOpacity,\n      transition: {\n        duration: duration,\n        ease: \"easeOut\"\n      }\n    }\n  };\n\n  const renderLetters = () => {\n    return text.split(\"\").map((char, index) => (\n      <motion.span\n        key={`letter-${index}`}\n        variants={itemVariants}\n        className=\"inline-block\"\n        style={{ whiteSpace: char === \" \" ? \"pre\" : \"normal\" }}>\n        {char}\n      </motion.span>\n    ));\n  };\n\n  const renderWords = () => {\n    return text.split(\" \").map((word, index) => (\n      <motion.span key={`word-${index}`} variants={itemVariants} className=\"mr-2 inline-block\">\n        {word}\n      </motion.span>\n    ));\n  };\n\n  return (\n    <motion.div\n      className={className}\n      variants={containerVariants}\n      initial=\"hidden\"\n      animate=\"visible\">\n      {animationType === \"letters\" ? renderLetters() : renderWords()}\n    </motion.div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/animated-text.tsx"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+---
+title: Text Morph Animation
+description: A beautiful text transformation effect. The animation uses SVG filters and blur effects to create smooth transitions between words.
+---
+
+<ComponentCodePreview name="text-morph-animation"/>
+
+## Installation
+
+<ComponentInstallation name="text-morph-animation" deps={"npm install clsx tailwind-merge"}/>
+
+## Usage
+
+<CodeRenderer name="text-morph-animation"/>
+
+## Props
+
+<TypeTable
+    type={{
+        texts: {
+            type: 'string[]',
+            description: 'An array of strings to be morphed in sequence.',
+        },
+        morphTime: {
+            type: 'number',
+            default: '2.5',
+            description: 'Duration (in seconds) for one morph animation cycle between two texts.',
+        },
+        cooldownTime: {
+            type: 'number',
+            default: '0.25',
+            description: 'Cooldown period (in seconds) between morph transitions.',
+        },
+        className: {
+            type: 'string',
+            default: 'undefined',
+            description: 'Optional Tailwind/CSS classes for styling the outer container.',
+        },
+    }}
+/>

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-gradient-scroll",
+  "type": "registry:block",
+  "title": "Text Gradient Scroll",
+  "dependencies": [
+    "motion",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "components/core/text-gradient-scroll.tsx",
+      "content": "\"use client\";\n\nimport React, { createContext, useContext, useRef } from \"react\";\nimport { motion, MotionValue, useScroll, useTransform } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\ntype TextOpacityEnum = \"none\" | \"soft\" | \"medium\";\ntype ViewTypeEnum = \"word\" | \"letter\";\n\ntype TextGradientScrollType = {\n  text: string;\n  type?: ViewTypeEnum;\n  className?: string;\n  textOpacity?: TextOpacityEnum;\n};\n\ntype LetterType = {\n  children: React.ReactNode | string;\n  progress: MotionValue<number>;\n  range: number[];\n};\n\ntype WordType = {\n  children: React.ReactNode;\n  progress: MotionValue<number>;\n  range: number[];\n};\n\ntype CharType = {\n  children: React.ReactNode;\n  progress: MotionValue<number>;\n  range: number[];\n};\n\ntype TextGradientScrollContextType = {\n  textOpacity?: TextOpacityEnum;\n  type?: ViewTypeEnum;\n};\n\nconst TextGradientScrollContext = createContext<TextGradientScrollContextType>(\n  {},\n);\n\nfunction useGradientScroll() {\n  return useContext(TextGradientScrollContext);\n}\n\nexport default function TextGradientScroll({\n  text,\n  className,\n  type = \"letter\",\n  textOpacity = \"soft\",\n}: TextGradientScrollType) {\n  const ref = useRef<HTMLParagraphElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: [\"start center\", \"end center\"],\n  });\n\n  const words = text.split(\" \");\n\n  return (\n    <TextGradientScrollContext.Provider value={{ textOpacity, type }}>\n      <p ref={ref} className={cn(\"relative flex m-0 flex-wrap\", className)}>\n        {words.map((word, i) => {\n          const start = i / words.length;\n          const end = start + 1 / words.length;\n          return type === \"word\" ? (\n            <Word key={i} progress={scrollYProgress} range={[start, end]}>\n              {word}\n            </Word>\n          ) : (\n            <Letter key={i} progress={scrollYProgress} range={[start, end]}>\n              {word}\n            </Letter>\n          );\n        })}\n      </p>\n    </TextGradientScrollContext.Provider>\n  );\n}\n\nconst Word = ({ children, progress, range }: WordType) => {\n  const opacity = useTransform(progress, range, [0, 1]);\n\n  return (\n    <span className=\"relative me-2 mt-2\">\n      <span style={{ position: \"absolute\", opacity: 0.1 }}>{children}</span>\n      <motion.span style={{ transition: \"all .5s\", opacity: opacity }}>\n        {children}\n      </motion.span>\n    </span>\n  );\n};\n\nconst Letter = ({ children, progress, range }: LetterType) => {\n  if (typeof children === \"string\") {\n    const amount = range[1] - range[0];\n    const step = amount / children.length;\n\n    return (\n      <span className=\"relative me-2 mt-2\">\n        {children.split(\"\").map((char: string, i: number) => {\n          const start = range[0] + i * step;\n          const end = range[0] + (i + 1) * step;\n          return (\n            <Char key={`c_${i}`} progress={progress} range={[start, end]}>\n              {char}\n            </Char>\n          );\n        })}\n      </span>\n    );\n  }\n};\n\nconst Char = ({ children, progress, range }: CharType) => {\n  const opacity = useTransform(progress, range, [0, 1]);\n  const { textOpacity } = useGradientScroll();\n\n  return (\n    <span>\n      <span\n        className={cn(\"absolute\", {\n          \"opacity-0\": textOpacity == \"none\",\n          \"opacity-10\": textOpacity == \"soft\",\n          \"opacity-30\": textOpacity == \"medium\",\n        })}\n      >\n        {children}\n      </span>\n      <motion.span\n        style={{\n          transition: \"all .5s\",\n          opacity: opacity,\n        }}\n      >\n        {children}\n      </motion.span>\n    </span>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/text-gradient-scroll.tsx"
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}

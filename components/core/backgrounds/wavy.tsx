@@ -3,12 +3,6 @@
 import React, { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
-////////////////////////////////////////////////////////////////////////////////
-// CONFIG SECTION (EASY-TO-EDIT VARIABLES)
-// Modify these to adjust the effect, including wave/swirling intensity,
-// fractal noise octaves, etc.
-////////////////////////////////////////////////////////////////////////////////
-
 // Zoom factor for the visual pattern.
 const ZOOM_FACTOR = 0.3;
 
@@ -59,7 +53,7 @@ const seaColors = [
   [0.4, 0.78, 0.92],
   [0.5, 0.85, 0.95],
   [0.7, 0.9, 0.97],
-  [0.85, 0.95, 1.0],
+  [0.85, 0.95, 1.0]
 ];
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -71,9 +65,7 @@ function buildFragmentShader(): string {
   const fbmOctavesInt = Math.floor(FBM_OCTAVES);
 
   // Convert seaColors array to GLSL array of vec3.
-  const colorArraySrc = seaColors
-    .map((c) => `vec3(${c[0]}, ${c[1]}, ${c[2]})`)
-    .join(",\n  ");
+  const colorArraySrc = seaColors.map((c) => `vec3(${c[0]}, ${c[1]}, ${c[2]})`).join(",\n  ");
 
   return `#version 300 es
 
@@ -237,7 +229,7 @@ void main() {
 function createShaderProgram(
   gl: WebGL2RenderingContext,
   vsSource: string,
-  fsSource: string,
+  fsSource: string
 ): WebGLProgram | null {
   const vertexShader = gl.createShader(gl.VERTEX_SHADER);
   if (!vertexShader) return null;
@@ -259,10 +251,7 @@ function createShaderProgram(
   gl.shaderSource(fragmentShader, fsSource);
   gl.compileShader(fragmentShader);
   if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
-    console.error(
-      "Fragment shader error:",
-      gl.getShaderInfoLog(fragmentShader),
-    );
+    console.error("Fragment shader error:", gl.getShaderInfoLog(fragmentShader));
     gl.deleteShader(vertexShader);
     gl.deleteShader(fragmentShader);
     return null;
@@ -280,10 +269,7 @@ function createShaderProgram(
   gl.linkProgram(program);
 
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-    console.error(
-      "Could not link WebGL program:",
-      gl.getProgramInfoLog(program),
-    );
+    console.error("Could not link WebGL program:", gl.getProgramInfoLog(program));
     gl.deleteShader(vertexShader);
     gl.deleteShader(fragmentShader);
     gl.deleteProgram(program);
@@ -298,7 +284,7 @@ function createShaderProgram(
 ////////////////////////////////////////////////////////////////////////////////
 export default function WavyBackground({
   children,
-  className,
+  className
 }: {
   children: React.ReactNode;
   className?: string;
@@ -338,9 +324,7 @@ export default function WavyBackground({
     gl.useProgram(program);
 
     // Full-screen quad
-    const quadVertices = new Float32Array([
-      -1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1,
-    ]);
+    const quadVertices = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);
 
     const vao = gl.createVertexArray();
     gl.bindVertexArray(vao);
@@ -363,10 +347,7 @@ export default function WavyBackground({
       const currentTime = performance.now();
       const elapsed = (currentTime - startTime) * 0.001; // seconds
 
-      if (
-        canvas.width !== window.innerWidth ||
-        canvas.height !== window.innerHeight
-      ) {
+      if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
       }
@@ -386,7 +367,6 @@ export default function WavyBackground({
 
     render();
 
-    // Listen for window resizing
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -404,11 +384,7 @@ export default function WavyBackground({
 
   return (
     <div className={cn("relative w-full overflow-hidden", className)}>
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0"
-        style={{ background: "transparent" }}
-      />
+      <canvas ref={canvasRef} className="absolute inset-0" style={{ background: "transparent" }} />
       {children}
     </div>
   );

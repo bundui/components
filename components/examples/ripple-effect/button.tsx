@@ -1,11 +1,10 @@
 import { RippleEffect } from "@/components/core/ripple-effect";
+import { Button } from "@/components/ui/button";
 
-export function RippleEffectButton() {
+export default function RippleEffectButton() {
   return (
     <RippleEffect className="rounded-lg">
-      <button className="px-6 py-3 bg-blue-600 text-white rounded-lg focus:outline-hidden">
-        Bundui Components
-      </button>
+      <Button size="lg">Click me</Button>
     </RippleEffect>
   );
 }

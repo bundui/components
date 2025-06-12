@@ -1,0 +1,52 @@
+---
+title: Stars Background
+description: A minimalist animated stars background component for React. It creates a smooth and subtle starfield animation behind your content, perfect for landing pages, portfolios, or any section that needs a cosmic touch.
+---
+
+<ComponentCodePreview name="backgrounds/stars" contentClassName="p-0!"/>
+
+## Installation
+
+<ComponentInstallation name="backgrounds/stars" deps={"npm install motion clsx tailwind-merge"}/>
+
+## Usage
+
+<CodeRenderer name="backgrounds/stars"/>
+
+## Props
+
+<TypeTable
+    type={{
+        children: {
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The content to be wrapped inside the background component.',
+        },
+        className: {
+            type: 'string',
+            description: 'Optional Tailwind/CSS classes for custom styling on the outer container.',
+        },
+        factor: {
+            type: 'number',
+            default: 0.05,
+            description: 'Controls the intensity of the parallax effect.',
+        },
+        speed: {
+            type: 'number',
+            default: 50,
+            description: 'Speed of the star animation.',
+        },
+        transition: {
+            type: 'SpringOptions',
+            default: '{ stiffness: 50, damping: 20 }',
+            description: 'Spring transition options for mouse movement.',
+        },
+        starColor: {
+            type: 'string',
+            default: '"#fff"',
+            description: 'Color of the stars in the background.',
+        },
+    }}
+/>
+
+

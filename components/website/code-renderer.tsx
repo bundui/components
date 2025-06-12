@@ -1,19 +1,11 @@
-import { codeToHtml } from '@/lib/shiki';
+import {CodeBlock} from "@/components/website/code-block";
+import React from "react";
 
 type CodeRenderer = {
-  code: string;
+  name: string;
   lang: string;
 };
 
-export default async function CodeRenderer({ code, lang }: CodeRenderer) {
-  const html = await codeToHtml({
-    code,
-    lang
-  });
-
-  return (
-    <div>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-    </div>
-  );
+export default async function CodeRenderer({ name }: CodeRenderer) {
+  return <CodeBlock filePath={`components/examples/${name}.tsx`} />
 }

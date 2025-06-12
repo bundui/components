@@ -25,7 +25,7 @@ interface ThemeColors {
 
 export default function MeteorShower({
   children,
-  className,
+  className
 }: {
   children: React.ReactNode;
   className?: string;
@@ -48,7 +48,7 @@ export default function MeteorShower({
       if (typeof window !== "undefined") {
         setDimensions({
           width: window.innerWidth,
-          height: window.innerHeight,
+          height: window.innerHeight
         });
       }
     };
@@ -63,13 +63,7 @@ export default function MeteorShower({
 
   // Main animation logic
   useEffect(() => {
-    if (
-      !canvasRef.current ||
-      dimensions.width === 0 ||
-      dimensions.height === 0 ||
-      !mounted
-    )
-      return;
+    if (!canvasRef.current || dimensions.width === 0 || dimensions.height === 0 || !mounted) return;
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -87,14 +81,14 @@ export default function MeteorShower({
             meteorHead: "rgba(255, 255, 255, 1)",
             meteorTailStart: "rgba(255, 255, 255, 1)",
             meteorTailMiddle: "rgba(255, 240, 200, 0.8)",
-            meteorTailEnd: "rgba(255, 200, 100, 0.1)",
+            meteorTailEnd: "rgba(255, 200, 100, 0.1)"
           }
         : {
-            background: "#f0f8ff", // Light blue sky
+            background: "#ffffff", // Light blue sky
             meteorHead: "rgba(70, 90, 120, 1)",
             meteorTailStart: "rgba(70, 90, 120, 1)",
             meteorTailMiddle: "rgba(100, 120, 150, 0.8)",
-            meteorTailEnd: "rgba(130, 150, 180, 0.1)",
+            meteorTailEnd: "rgba(130, 150, 180, 0.1)"
           };
 
     // Create meteors with varied starting positions
@@ -130,10 +124,10 @@ export default function MeteorShower({
       }
 
       // Random size between 1 and 3
-      const size = 1 + Math.random() * 2;
+      const size = 1 + Math.random() * 10;
 
       // Medium-slow speed (consistent for all meteors)
-      const speed = 2.5;
+      const speed = 3;
 
       // Fixed angle for consistent direction (45 degrees in radians)
       const angle = Math.PI / 4;
@@ -149,7 +143,7 @@ export default function MeteorShower({
         angle,
         opacity: 0.7 + Math.random() * 0.3,
         tail: [],
-        tailLength,
+        tailLength
       };
     };
 
@@ -185,26 +179,17 @@ export default function MeteorShower({
             meteor.tail[0].x,
             meteor.tail[0].y,
             meteor.tail[meteor.tail.length - 1].x,
-            meteor.tail[meteor.tail.length - 1].y,
+            meteor.tail[meteor.tail.length - 1].y
           );
 
-          gradient.addColorStop(
-            0,
-            themeColors.meteorTailStart.replace("1)", `${meteor.opacity})`),
-          );
+          gradient.addColorStop(0, themeColors.meteorTailStart.replace("1)", `${meteor.opacity})`));
           gradient.addColorStop(
             0.3,
-            themeColors.meteorTailMiddle.replace(
-              "0.8)",
-              `${meteor.opacity * 0.8})`,
-            ),
+            themeColors.meteorTailMiddle.replace("0.8)", `${meteor.opacity * 0.8})`)
           );
           gradient.addColorStop(
             1,
-            themeColors.meteorTailEnd.replace(
-              "0.1)",
-              `${meteor.opacity * 0.1})`,
-            ),
+            themeColors.meteorTailEnd.replace("0.1)", `${meteor.opacity * 0.1})`)
           );
 
           ctx.strokeStyle = gradient;
@@ -222,18 +207,11 @@ export default function MeteorShower({
         // Draw meteor head (small circle)
         ctx.beginPath();
         ctx.arc(meteor.x, meteor.y, meteor.size / 2, 0, Math.PI * 2);
-        ctx.fillStyle = themeColors.meteorHead.replace(
-          "1)",
-          `${meteor.opacity})`,
-        );
+        ctx.fillStyle = themeColors.meteorHead.replace("1)", `${meteor.opacity})`);
         ctx.fill();
 
         // Reset meteor if it goes off screen
-        if (
-          meteor.y > dimensions.height ||
-          meteor.x < -50 ||
-          meteor.x > dimensions.width + 50
-        ) {
+        if (meteor.y > dimensions.height || meteor.x < -50 || meteor.x > dimensions.width + 50) {
           meteorsRef.current[index] = createMeteor();
         }
       });
@@ -258,7 +236,7 @@ export default function MeteorShower({
     <div className={cn("relative w-full", className)}>
       <canvas
         ref={canvasRef}
-        className="absolute w-full h-full"
+        className="absolute h-full w-full"
         style={{ display: dimensions.width > 0 ? "block" : "none" }}
       />
       <div className="z-10">{children}</div>

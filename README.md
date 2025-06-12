@@ -1,14 +1,14 @@
 # Bundui
 
-Welcome to our component collection. In this collection you will find pre-built animated components, blocks and real-world examples.
+A collection of components that you can copy and paste into your apps. Built with Tailwind CSS and Motion. Supports shadcn/ui and is typescript compatible.
 
-This is a project dedicated to showcasing animated components built with Framer Motion and Tailwind CSS. This collection is a repository of reusable components designed to enhance your web applications or websites with beautiful, fluid animations.
-
-**This project is still in beta phase. Some content may be changed or deleted. Keep in mind that we are constantly trying to keep this place updated.**
+<a href="https://github.com/bundui/components/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/bundui/components?style=for-the-badge"></a>
+<a href="https://x.com/bunduidotio"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/bunduidotio?style=for-the-badge&logo=x"></a>
+<a href="https://github.com/bundui/components/blob/main/LICENCE.md"><img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge"></a>
 
 ## Documentation
 
-Visit [bundui.io/docs/introduction](https://bundui.io/docs/introduction) to view the full documentation.
+Visit the full [docs](https://bundui.io/components) page.
 
 ## License
 

@@ -1,0 +1,35 @@
+---
+title: Floating Paths Background
+description: Floating Paths Background is a decorative background animation component that creates soft, looping path shapes floating across the screen.
+---
+
+<ComponentCodePreview name="backgrounds/floating-paths" contentClassName="p-0!"/>
+
+## Installation
+
+<ComponentInstallation name="backgrounds/floating-paths" deps={"npm install motion clsx tailwind-merge"}/>
+
+## Usage
+
+<CodeRenderer name="backgrounds/floating-paths"/>
+
+## Props
+
+<TypeTable
+    type={{
+        position: {
+            type: 'number',
+            description: 'A multiplier used to calculate the offset and curve of each path.',
+        },
+        children: {
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The content that will be rendered above the floating background paths.',
+        },
+        className: {
+            type: 'string',
+            description: 'Optional Tailwind/CSS classes for custom styling on the outer container.',
+        },
+    }}
+/>
+

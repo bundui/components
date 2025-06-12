@@ -1,0 +1,56 @@
+---
+title: Scroll Progress Bar
+description: The scroll progress bar adds a dynamic, interactive scrolling indicator, built with Motion and Tailwind CSS, enhancing user experience with smooth transitions.
+---
+
+<ComponentCodePreview name="scroll-progress-bar/bar" iframe={true}/>
+
+## Installation
+
+<ComponentInstallation name="scroll-progress-bar" deps={"npm install motion clsx tailwind-merge "}/>
+
+## Usage
+
+<CodeRenderer name="scroll-progress-bar/bar"/>
+
+## Examples
+
+### Circle
+
+<ComponentCodePreview name="scroll-progress-bar/circle" iframe={true}/>
+
+## Props
+
+<TypeTable
+    type={{
+        type: {
+            type: '"circle" | "bar"',
+            default: '"circle"',
+            description:
+                'The type of progress bar, either a circular or bar representation',
+        },
+        position: {
+            type: '"top-right" | "bottom-right" | "top-left" | "bottom-left"',
+            default: '"bottom-right"',
+            description:
+                'The position of the progress bar on the screen (top-right, bottom-right, top-left, bottom-left)',
+        },
+        color: {
+            type: 'string',
+            default: 'var(--primary)',
+            description: 'The color of the progress indicator',
+        },
+        strokeSize: {
+            type: 'number',
+            default: 2,
+            description:
+                'The stroke size of the circular progress bar or the height of the progress bar',
+        },
+        showPercentage: {
+            type: 'boolean',
+            description:
+                'Whether to display the percentage value inside the progress indicator',
+        },
+    }}
+/>
+

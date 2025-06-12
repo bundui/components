@@ -1,0 +1,48 @@
+---
+title: Fluid Particles Background
+description: The Geometric Background component features a modern and sophisticated design, incorporating dynamic geometric shapes like triangles, squares, and polygons. These shapes subtly animate across the screen, adding a unique and engaging element to your website's background. Perfect for tech, creative, and professional websites, the geometric pattern adapts effortlessly to both light and dark themes, creating a sleek and visually striking experience for users.
+---
+
+<ComponentCodePreview name="backgrounds/fluid-particles" contentClassName="p-0!"/>
+
+## Installation
+
+<ComponentInstallation name="backgrounds/fluid-particles" deps={"npm install clsx tailwind-merge"}/>
+
+## Usage
+
+<CodeRenderer name="backgrounds/fluid-particles"/>
+
+## Props
+
+<TypeTable
+    type={{
+        children: {
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The content that will be rendered inside the component.',
+        },
+        particleCount: {
+            type: 'number',
+            default: 2000,
+            description: 'The number of particles to generate in the background.',
+        },
+        noiseIntensity: {
+            type: 'number',
+            default: 0.003,
+            description:
+                'The intensity of the noise effect, influencing particle movement.',
+        },
+        particleSize: {
+            type: '{ min: number; max: number }',
+            default: '{ min: 0.5, max: 2 }',
+            description: 'The minimum and maximum size of each particle.',
+        },
+        className: {
+            type: 'string',
+            description:
+                'Optional Tailwind/CSS classes for custom styling on the outer container.',
+        },
+    }}
+/>
+

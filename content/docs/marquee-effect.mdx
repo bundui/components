@@ -1,0 +1,63 @@
+---
+title: Marquee Effect
+description: Add dynamic movement to your UI with Marquee effect, ideal for highlighting important information with smooth, continuous scrolling. Built with Tailwind CSS and Motion.
+---
+
+<ComponentCodePreview name="marquee-effect/base"/>
+
+## Installation
+
+<ComponentInstallation name="marquee-effect" deps={"npm install motion clsx tailwind-merge react-use-measure"}/>
+
+## Usage
+
+<CodeRenderer name="marquee-effect/base"/>
+
+## Examples
+
+### Reverse
+
+<ComponentCodePreview name="marquee-effect/reverse"/>
+
+### Vertical
+
+<ComponentCodePreview name="marquee-effect/vertical" contentClassName="p-0!"/>
+
+## Props
+
+<TypeTable
+    type={{
+        children: {
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The content to be scrolled inside the marquee effect',
+        },
+        gap: {
+            type: 'number',
+            default: 16,
+            description: 'The gap between each child element in the marquee',
+        },
+        speed: {
+            type: 'number',
+            default: 100,
+            description: 'The speed of the scrolling animation',
+        },
+        speedOnHover: {
+            type: 'number',
+            description: 'The speed of the scrolling when the user hovers over the marquee',
+        },
+        direction: {
+            type: '"horizontal" | "vertical"',
+            default: '"horizontal"',
+            description: 'The direction of the marquee scroll (horizontal or vertical)',
+        },
+        reverse: {
+            type: 'boolean',
+            description: 'Whether to reverse the direction of the marquee scroll',
+        },
+        className: {
+            type: 'string',
+            description: 'Custom className for the marquee container',
+        },
+    }}
+/>

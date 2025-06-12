@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-morph-animation",
+  "type": "registry:block",
+  "title": "Text Morph Animation",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "components/core/text-morph-animation.tsx",
+      "content": "\"use client\";\n\nimport React, { useState, useEffect, useRef } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface TextMorphAnimationProps {\n  texts: string[];\n  morphTime?: number;\n  cooldownTime?: number;\n  className?: string;\n}\n\nconst TextMorphAnimation: React.FC<TextMorphAnimationProps> = ({\n  texts,\n  morphTime = 2.5,\n  cooldownTime = 0.25,\n  className\n}) => {\n  const [textIndex, setTextIndex] = useState(0);\n  const [morph, setMorph] = useState(0);\n  const [cooldown, setCooldown] = useState(cooldownTime);\n  const animationRef = useRef<number | undefined>(undefined);\n  const lastTimeRef = useRef<number>(performance.now());\n\n  useEffect(() => {\n    const animate = (currentTime: number) => {\n      const dt = (currentTime - lastTimeRef.current) / 1000;\n      lastTimeRef.current = currentTime;\n\n      setCooldown((prevCooldown) => {\n        const newCooldown = prevCooldown - dt;\n\n        if (newCooldown <= 0) {\n          setMorph((prevMorph) => {\n            const newMorph = prevMorph + dt;\n\n            if (newMorph >= morphTime) {\n              setTextIndex((prev) => (prev + 1) % texts.length);\n              return 0;\n            }\n\n            return newMorph;\n          });\n\n          return newCooldown;\n        } else {\n          setMorph(0);\n          return newCooldown;\n        }\n      });\n\n      if (morph >= morphTime) {\n        setCooldown(cooldownTime);\n      }\n\n      animationRef.current = requestAnimationFrame(animate);\n    };\n\n    animationRef.current = requestAnimationFrame(animate);\n\n    return () => {\n      if (animationRef.current) {\n        cancelAnimationFrame(animationRef.current);\n      }\n    };\n  }, [texts.length, morphTime, cooldownTime, morph]);\n\n  const getMorphStyles = (isSecondText: boolean) => {\n    if (cooldown > 0) {\n      return {\n        filter: \"\",\n        opacity: isSecondText ? 0 : 1\n      };\n    }\n\n    let fraction = Math.min(morph / morphTime, 1);\n\n    if (!isSecondText) {\n      fraction = 1 - fraction;\n    }\n\n    const blur = Math.max(0, Math.min(6 / fraction - 6, 100));\n    const opacity = Math.pow(fraction, 0.4);\n\n    return {\n      filter: `blur(${blur}px)`,\n      opacity: opacity\n    };\n  };\n\n  return (\n    <div className={cn(\"relative flex h-20 w-full items-center justify-center\", className)}>\n      <svg className=\"absolute h-0 w-0\">\n        <defs>\n          <filter id=\"threshold\">\n            <feColorMatrix\n              in=\"SourceGraphic\"\n              type=\"matrix\"\n              values=\"1 0 0 0 0\n                      0 1 0 0 0\n                      0 0 1 0 0\n                      0 0 0 255 -140\"\n            />\n          </filter>\n        </defs>\n      </svg>\n\n      <div\n        className=\"absolute flex h-full w-full items-center justify-center\"\n        style={{\n          filter: \"url(#threshold) blur(0.6px)\"\n        }}>\n        <span\n          className=\"font-raleway text-foreground absolute w-full text-center text-6xl font-black select-none md:text-6xl\"\n          style={getMorphStyles(false)}>\n          {texts[textIndex]}\n        </span>\n\n        <span\n          className=\"font-raleway text-foreground absolute w-full text-center text-6xl font-black select-none md:text-6xl\"\n          style={getMorphStyles(true)}>\n          {texts[(textIndex + 1) % texts.length]}\n        </span>\n      </div>\n    </div>\n  );\n};\n\nexport default TextMorphAnimation;\n",
+      "type": "registry:component",
+      "target": "components/text-morph-animation.tsx"
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}
