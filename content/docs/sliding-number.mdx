@@ -1,0 +1,43 @@
+---
+title: Sliding Number
+description: A component that slides numbers.
+---
+
+<ComponentCodePreview name="sliding-number/basic"/>
+
+## Installation
+
+<ComponentInstallation name="sliding-number" deps={"npm install react-use-measure motion"}/>
+
+## Usage
+
+### Basic
+
+<CodeRenderer name="sliding-number/basic"/>
+
+### Clock
+
+<ComponentCodePreview name="sliding-number/clock"/>
+
+## Props
+
+<TypeTable
+  type={{
+    value: {
+      type: 'number',
+      description: 'The numeric value to display with sliding digit animations.',
+    },
+    padStart: {
+      type: 'boolean',
+      default: 'false',
+      description: 'If true, prepends a zero to single-digit values (e.g., "07" instead of "7").',
+    },
+    decimalSeparator: {
+      type: 'string',
+      default: '"."',
+      description: 'Character used to separate the integer and decimal parts of the number.',
+    },
+  }}
+/>
+
+
