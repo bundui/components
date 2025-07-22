@@ -1,0 +1,42 @@
+---
+title: Image Comparison
+description: Discover the allure of animated gradient text, a dynamic UI component that enhances user engagement with smooth color transitions.
+---
+
+<ComponentCodePreview name="image-comparison"/>
+
+## Installation
+
+<ComponentInstallation name="image-comparison" deps={"npm install clsx tailwind-merge motion"}/>
+
+## Usage
+
+<CodeRenderer name="image-comparison"/>
+
+## Props
+
+<TypeTable
+  type={{
+    children: {
+      type: 'React.ReactNode',
+      description: 'The content of the comparison component, usually two images and a slider.',
+    },
+    className: {
+      type: 'string',
+      default: 'undefined',
+      description: 'Optional Tailwind/CSS classes for custom styling on the outer container.',
+    },
+    enableHover: {
+      type: 'boolean',
+      default: 'false',
+      description: 'Enables interaction by hovering instead of dragging if set to true.',
+    },
+    springOptions: {
+      type: 'SpringOptions',
+      default: '{ bounce: 0, duration: 0 }',
+      description: 'Spring animation options for the slider movement.',
+    },
+  }}
+/>
+
+
