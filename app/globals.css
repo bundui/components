@@ -5,6 +5,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@property --border-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: '<angle>';
+}
+
 @theme {
     --color-background: hsl(var(--background));
     --color-foreground: hsl(var(--foreground));
@@ -22,9 +28,17 @@
 
     --animate-text-gradient: text-gradient 1.3s linear infinite;
 
+    --animate-border: border-angle 4s linear infinite;
+
     @keyframes text-gradient {
         to {
             background-position: -200% center;
+        }
+    }
+
+    @keyframes border-angle {
+        to {
+            --border-angle: 360deg;
         }
     }
 }

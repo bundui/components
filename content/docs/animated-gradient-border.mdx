@@ -1,0 +1,36 @@
+---
+title: Animated Gradient Border
+description: An Animated Gradient Border is a decorative ui element that displays moving color gradients around a component’s edge.
+---
+
+<ComponentCodePreview name="gradient-border/card"/>
+
+## Installation
+
+<ComponentInstallation name="gradient-border" deps={"npm install clsx tailwind-merge"}/>
+
+## Usage
+
+<CodeRenderer name="gradient-border/card"/>
+
+## Image
+
+<ComponentCodePreview name="gradient-border/image"/>
+
+## Props
+
+<TypeTable
+    type={{
+        className: {
+            type: 'string',
+            required: false,
+            description: 'Optional CSS class for additional styling',
+        },
+        children: {
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The content to be wrapped inside the component. Typically your page content.',
+        },
+    }}
+/>
+
