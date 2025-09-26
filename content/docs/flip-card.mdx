@@ -1,0 +1,52 @@
+---
+title: Flip Card
+description: Experience smooth, fluid card navigation with natural drag interactions and beautiful animations
+---
+
+<ComponentCodePreview name="flip-card"/>
+
+## Installation
+
+<ComponentInstallation name="flip-card" deps={"npm i motion"}/>
+
+## Usage
+
+<CodeRenderer name="flip-card"/>
+
+## Props
+
+<TypeTable
+  type={{
+    children: {
+      type: 'ReactNode[]',
+      description: 'The stack of cards to be displayed and interacted with.',
+    },
+    stackOffset: {
+      type: 'number',
+      default: '20',
+      description: 'Vertical offset in pixels between stacked cards.',
+    },
+    stackRotation: {
+      type: 'number',
+      default: '8',
+      description: 'Rotation in degrees applied progressively to stacked cards.',
+    },
+    dragThreshold: {
+      type: 'number',
+      default: '120',
+      description: 'Minimum drag distance required to trigger a card reorder.',
+    },
+    borderRadius: {
+      type: 'number',
+      default: '10',
+      description: 'Border radius applied to each card container.',
+    },
+    shadowIntensity: {
+      type: 'number',
+      default: '0.2',
+      description: 'Alpha value for the box shadow applied to cards (0 = no shadow, 1 = solid black).',
+    },
+  }}
+/>
+
+
