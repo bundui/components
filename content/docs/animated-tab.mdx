@@ -1,0 +1,39 @@
+---
+title: Animated Tab
+description: An animated tab is a ui component that switches between content panels with smooth animated transitions.
+---
+
+<ComponentCodePreview name="animated-tab"/>
+
+## Installation
+
+<ComponentInstallation name="animated-tab" deps={"npm install motion"}/>
+
+## Usage
+
+<CodeRenderer name="animated-tab"/>
+## Props
+
+<TypeTable
+  type={{
+    tabs: {
+      type: 'AnimatedTab[]',
+      description: 'An array of tab objects containing the tab name and its associated content.',
+    },
+  }}
+/>
+
+### Tab Props
+
+<TypeTable
+  type={{
+    name: {
+      type: 'string',
+      description: 'The label of the tab displayed on the tab button.',
+    },
+    content: {
+      type: 'React.ReactNode | string',
+      description: 'The content to display when the tab is selected.',
+    },
+  }}
+/>
