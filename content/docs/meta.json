@@ -1,5 +1,5 @@
 {
-  "title": "Bundui",
+  "title": "BundUI",
   "root": true,
   "pages": [
     "---Getting started---",
@@ -17,6 +17,7 @@
     "floating-button",
     "flip-card",
     "image-comparison",
+    "image-reveal",
     "tilt-effect",
     "text-morph-animation",
     "magnetic-button",

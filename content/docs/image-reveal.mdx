@@ -1,0 +1,27 @@
+---
+title: Image Reveal
+description: An interactive image reveal component where images appear and follow the cursor when hovering over any div element.
+---
+
+<ComponentCodePreview name="image-reveal"/>
+
+## Installation
+
+<ComponentInstallation name="image-reveal" deps={"npm install motion"}/>
+
+## Usage
+
+<CodeRenderer name="image-reveal"/>
+
+## Props
+
+<TypeTable
+  type={{
+    list: {
+      required: true,
+      type: 'Array<{ img: string; label: string }>',
+      description: 'An array of image objects, each containing the image source and label text.',
+    },
+  }}
+/>
+
